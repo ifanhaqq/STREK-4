@@ -1,7 +1,15 @@
-.color {
-    background-color: aqua;
-}
+
 
 .top-panel {
     margin-top: 30%;
+}
+
+a:link, a:visited, a:active {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: gray;
+    text-decoration: underline;
 }
