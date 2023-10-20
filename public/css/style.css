@@ -1,17 +1,5 @@
-
-
 .top-panel {
     margin-top: 30%;
-}
-
-a:link, a:visited, a:active {
-    color: blue;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:hover {
-    color: gray;
-    text-decoration: underline;
 }
 
 .circled {
@@ -27,4 +15,8 @@ a:hover {
 
 .color-dump {
     color: rgba(31, 173, 173, 0)
+}
+
+.bg-strek {
+    background-color: rgb(140, 230, 154);
 }
