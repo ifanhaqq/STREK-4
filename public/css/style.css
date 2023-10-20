@@ -13,3 +13,18 @@ a:hover {
     color: gray;
     text-decoration: underline;
 }
+
+.circled {
+    border-radius: 50%;
+}
+
+.GFG { 
+    color: white; 
+    font-size: 50px; 
+    -webkit-text-stroke-width: 1px; 
+    -webkit-text-stroke-color: black; 
+}
+
+.color-dump {
+    color: rgba(31, 173, 173, 0)
+}

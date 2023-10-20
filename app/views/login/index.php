@@ -6,17 +6,30 @@
     <title><?= $data['title']; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="http://localhost/STREK-4/public/css/style.css" rel="stylesheet">
+    <style>
+      input {
+        text-align: center;
+      }
+      ::-webkit-input-placeholder {
+        text-align: center;
+      }
+      :-moz-placeholder {
+        text-align: center;
+      }
+      
+    </style>
 </head>
 <body>
-<div class="row">
+    <div class="row">
         <div class="col-6">
+            <p class="fw-bolder ms-2 mt-2">STREK-4</p>
             <div class="top-panel">
                 <div class="d-flex flex-column justify-content-center fw-bold">
                     <div class="d-flex flex-row justify-content-center">
-                        <div class="p-2 align-center"><h1>SISTEM <span style="color: aqua;">TABUNGAN</span></h1></div>
+                        <div class="p-2 align-center"><h1 class="fw-bolder">SISTEM <span style="color: aqua;">TABUNGAN</span></h1></div>
                     </div>
                     <div class="d-flex flex-row justify-content-center">
-                        <div class="p-2"><h1><span style="color: aqua;">SDN ERETAN</span> KULON 4</h1></div>
+                        <div class="p-2"><h1 class="fw-bolder"><span style="color: aqua;">SDN ERETAN</span> KULON 4</h1></div>
                     </div>
                     <div class="d-flex flex-row justify-content-center">
                         <div class="p-2"><h1></div>
@@ -32,25 +45,30 @@
         </div>
         <div class="col-6" style="background-color: rgb(190, 250, 230);">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-6 top-panel panel panel-secondary" style="background-color: aqua">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center mt-4">Sign in</h3>
+                <div class="col-2 text-center"></div>
+                <div class="col-6 top-panel">
+                    <div class="row">
+                        <h2 class="fw-bolder text-center text-white">WELCOME</h2>
                     </div>
-                    <div class="panel-body">
-                        <form name="form" method="POST" action="">
-                            <fieldset>
-                                <div class="form-group text-center">
-                                    <label>Username</label>
-                                    <input class="form-control" placeholder="Masukkan username..." name="username" type="text" autofocus="true" required="true">
-                                </div>
-                                <div class="form-group text-center">
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Masukkan password..." name="password" type="password" required="true">
-                                </div>
-                                <button type="submit" class="btn btn-success mb-4">Login</button>
-                            </fieldset>
-                        </form>
+                    <div class="row" style="background-color: rgb(31, 173, 173); border-radius: 40px">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title text-center mt-3 fw-bolder">Sign in</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <form name="form" method="POST" action="">
+                                    <fieldset>
+                                        <div class="form-group mb-4">
+                                            <input class="form-control" placeholder="Masukkan username..." name="username" type="text" autofocus="true" required="true">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <input class="form-control" placeholder="Masukkan password..." name="password" type="password" required="true">
+                                        </div>
+                                        <button type="submit" class="btn btn-dark mb-4 rounded-pill">Sign in</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
