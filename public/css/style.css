@@ -22,8 +22,11 @@
 }
 
 .bg-sidebar {
-    background-color: rgb(183, 183, 183);
-    /* background-color: rgba(226,227,229,255); */
+    background-color: rgb(229, 227, 227);
+}
+
+.bg-merah {
+    background-color: rgb(255, 79, 79);
 }
 
 a {
