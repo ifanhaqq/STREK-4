@@ -6,7 +6,6 @@
             <img src="<?= BASEURL; ?>/img/profile.png" class="img-thumbnail me-2 rounded-circle" width="40" height="auto">Nama
         </li></a>
         <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
-        <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Mutasi</li></a>
         <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Registorasi</li></a>
     </ul>
     <ul class="position-absolute" style="bottom: 0">

@@ -2,25 +2,14 @@
 
 class Profile extends Controller {
 
-    public function index($name = "Kirito", $occupation = "Swordsman", $age = 23)
+    public function index()
     {
-        $data['name'] = $name;
-        $data['occupation'] = $occupation;
-        $data['age'] = $age;
-        $data['title'] = 'Profile';
+        $data['title'] = 'Profil';
         
         $this->view('templates/header', $data);
         $this->view('templates/nav');
-        $this->view('profile/index', $data);
+        $this->view('profile/index');
         $this->view('templates/footer');
 
-    }
-    public function page()
-    {
-        $data['title'] = 'Pages';
-        $this->view('templates/header', $data);
-        $this->view('templates/nav.php');
-        $this->view('profile/page');
-        $this->view('templates/footer');
     }
 }
