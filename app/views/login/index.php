@@ -56,15 +56,15 @@
                                 <h3 class="panel-title text-center mt-3 fw-bolder">Sign in</h3>
                             </div>
                             <div class="panel-body text-center">
-                                <form name="form" method="POST" action="">
+                                <form name="form" method="POST" action="<?= BASEURL; ?>/User/login">
                                     <fieldset>
                                         <div class="form-group mb-4">
-                                            <input class="form-control" placeholder="Masukkan username..." name="username" type="text" autofocus="true" required="true">
+                                            <input class="form-control" placeholder="Masukkan username/email..." name="username/email" type="text" autofocus="true" required="true">
                                         </div>
                                         <div class="form-group mb-4">
                                             <input class="form-control" placeholder="Masukkan password..." name="password" type="password" required="true">
                                         </div>
-                                        <button type="submit" class="btn btn-dark mb-4 rounded-pill">Sign in</button>
+                                        <button type="submit" class="btn btn-dark mb-4 rounded-pill" name="submit">Sign in</button>
                                     </fieldset>
                                 </form>
                             </div>

@@ -3,16 +3,14 @@
 class Controller {
     public function view($view, $data = [])
     {
-        // error_reporting(0);
-        // if (!isset($_SESSION['nama'])) {
-        //     session_start();
-        //     $view = 'login';
-        //     require_once '../app/views/login/index.php';
-        // } else {
-        // require_once '../app/views/' . $view . '.php';
-        // }
-
+        error_reporting(0);
+        if (!isset($_SESSION['id'])) {
+            session_start();
+            $view = 'login';
+            require_once '../app/views/login/index.php';
+        } else {
         require_once '../app/views/' . $view . '.php';
+        }
     }
 
     public function model($model)

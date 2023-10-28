@@ -3,14 +3,20 @@
     <div class="sidebar-heading border-bottom">STREK-4</div>
     <ul class="list-group mt-auto list-group-flush">
         <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3 mb-4 border-end border-dark">
-            <img src="<?= BASEURL; ?>/img/profile.png" class="img-thumbnail me-2 rounded-circle" width="40" height="auto">Nama
+            <img src="<?= BASEURL; ?>/img/profile.png" class="img-thumbnail me-2 rounded-circle" width="40" height="auto">
+            <?php if(isset($_SESSION['id'])) {
+                echo $_SESSION['name'];
+                // echo explode(" ", $_SESSION['name'])[0];
+            } else {
+                echo 'Guest';
+            } ?>
         </li></a>
         <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
         <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Registorasi</li></a>
     </ul>
     <ul class="position-absolute" style="bottom: 0">
         <div class="bg-merah rounded-pill">
-            <a href="" style="text-decoration: none"><li class="list-group-item list-group-item-action p-3 rounded-pill text-black fw-bolder">Logout</li></a>
+            <a href="<?= BASEURL; ?>/User/logout" style="text-decoration: none"><li class="list-group-item list-group-item-action p-3 rounded-pill text-black fw-bolder">Logout</li></a>
         </div>
     </ul>
 </div>
