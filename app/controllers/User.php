@@ -33,6 +33,8 @@ class User extends Controller {
         unset($_SESSION['id']);
         unset($_SESSION['name']);
         unset($_SESSION['email']);
+        unset($_SESSION['nip']);
+        unset($_SESSION['kelas']);
         session_destroy();
         header('Location: ' . BASEURL);
     }
