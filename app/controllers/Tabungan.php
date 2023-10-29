@@ -26,4 +26,9 @@ class Tabungan extends Controller {
             exit;
         }
     }
+
+    public function getsaldo()
+    {
+        echo json_encode($this->model('Tabungan_model')->getTabunganByIdAssoc($_POST['id']));
+    }
 }

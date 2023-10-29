@@ -21,6 +21,13 @@ class Tabungan_model {
         return $this->db->single();
     }
 
+    public function getTabunganByIdAssoc($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->bind('id', $id);
+        return $this->db->singleAssoc();
+    }
+
     public function tambahDataTabungan($data)
     {
         $query = "INSERT INTO tabungan(nisn, nama, gender, saldo) VALUES (:nisn, :nama, :gender, 0)";
