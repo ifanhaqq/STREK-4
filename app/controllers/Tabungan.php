@@ -14,7 +14,7 @@ class Tabungan extends Controller {
         }
     }
 
-    public function tambahJumlahSaldo($id)
+    public function tambahJumlahSaldo()
     {
         if ($this->model('Tabungan_model')->tambahSaldo($_POST) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'success');
