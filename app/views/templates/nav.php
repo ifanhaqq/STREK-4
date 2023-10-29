@@ -6,7 +6,6 @@
             <img src="<?= BASEURL; ?>/img/profile.png" class="img-thumbnail me-2 rounded-circle" width="40" height="auto">
             <?php if(isset($_SESSION['id'])) {
                 echo $_SESSION['name'];
-                // echo explode(" ", $_SESSION['name'])[0];
             } else {
                 echo 'Guest';
             } ?>

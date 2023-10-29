@@ -23,11 +23,9 @@ class User extends Controller {
                 $this->createUserSession($loggedInUser);
             }else{
                 echo "salah";
-                // header("Location: " . BASEURL);
             }
         }else{
             echo "false";
-            // header("Location: " . BASEURL);
         }
     }
 
@@ -44,6 +42,8 @@ class User extends Controller {
         $_SESSION['id'] = $user->id;
         $_SESSION['name'] = $user->name;
         $_SESSION['email'] = $user->email;
+        $_SESSION['nip'] = $user->nip;
+        $_SESSION['kelas'] = $user->kelas;
         header('Location: ' . BASEURL);
     }
 
