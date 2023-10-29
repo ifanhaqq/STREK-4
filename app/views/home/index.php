@@ -24,7 +24,7 @@
                     <td class="border border-end border-dark"><?= $row['nisn'] ?></td>
                     <td class="border border-end border-dark"><?= $row['gender'] ?></td>
                     <td class="border border-end border-dark"><?= $row['saldo'] ?></td>
-                    <td class="text-center"><a href="<?= BASEURL; ?>/tabungan/tambahJumlahSaldo/<?= $row['id'] ?>" class="saldoModal" data-bs-toggle="modal" data-bs-target="#addTabunganModal" data-id="<?= $row['id']; ?>"><i class="bi bi-plus-lg"></i></a></td>
+                    <td class="text-center"><a href="<?= BASEURL; ?>/tabungan/tambahJumlahSaldo/<?= $row['id'] ?>" class="saldoModal" data-bs-toggle="modal" data-bs-target="" data-id="<?= $row['id']; ?>"><i class="bi bi-plus-lg"></i></a></td>
                     </tr>
                     <?php
                     $no++;
