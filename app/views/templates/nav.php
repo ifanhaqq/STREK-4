@@ -15,7 +15,7 @@
     </ul>
     <ul class="position-absolute" style="bottom: 0">
         <div class="bg-merah rounded-pill">
-            <a href="<?= BASEURL; ?>/User/logout" style="text-decoration: none"><li class="list-group-item list-group-item-action p-3 rounded-pill text-black fw-bolder">Logout</li></a>
+            <a href="" style="text-decoration: none" data-bs-toggle="modal" data-bs-target="#myModal"><li class="list-group-item list-group-item-action p-3 rounded-pill text-black fw-bolder">Logout</li></a>
         </div>
     </ul>
 </div>

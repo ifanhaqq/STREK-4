@@ -13,4 +13,17 @@ class Tabungan extends Controller {
             exit;
         }
     }
+
+    public function tambahJumlahSaldo($id)
+    {
+        if ($this->model('Tabungan_model')->tambahSaldo($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL);
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL);
+            exit;
+        }
+    }
 }
