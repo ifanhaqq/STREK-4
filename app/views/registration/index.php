@@ -4,26 +4,35 @@
     </div>
     <div class="row">
         <div class="col-6 fw-bolder">
-            <form>
+            <?php Flasher::flash(); ?>
+            <form method="post" action="<?= BASEURL; ?>/user/register">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Nama</label>
-                    <input type="text" class="form-control border-dark" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" class="form-control border-dark" name="nama" id="nama">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="email" class="form-control border-dark" id="exampleInputPassword1">
+                    <label for="nip" class="form-label">NIP</label>
+                    <input type="text" class="form-control border-dark" name="nip" id="nip">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Username</label>
-                    <input type="text" class="form-control border border-dark" id="exampleInputPassword1">
+                    <label for="kelas" class="form-label">Kelas</label>
+                    <input type="number" class="form-control border-dark" name="kelas" id="kelas">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control border-dark" id="exampleInputPassword1">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control border-dark" name="email" id="email">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Masukkan kembali password</label>
-                    <input type="password" class="form-control border-dark" id="exampleInputPassword1">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control border border-dark" name="username" id="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control border-dark" name="password" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="pwdRpt" class="form-label">Masukkan kembali password</label>
+                    <input type="password" class="form-control border-dark" name="pwdRpt" id="pwdRpt">
                 </div>
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary rounded-pill">Tambah data</button>

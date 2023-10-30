@@ -2,6 +2,49 @@
 
 class User extends Controller {
 
+    public function register() {
+        //Process form
+            
+        //Sanitize POST data
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        //Init data
+        $data = [
+            'nama' => trim($_POST['nama']),
+            'email' => trim($_POST['email']),
+            'username' => trim($_POST['username']),
+            'nip' => trim($_POST['nip']),
+            'kelas' => trim($_POST['kelas']),
+            'password' => trim($_POST['password']),
+            'pwdRpt' => trim($_POST['pwdRpt'])
+        ];
+
+        //validate pwd
+        if($data['password'] !== $data['pwdRpt']) {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL .'/registration');
+        }
+
+        //check account that already exist
+        if ($this->model('User_model')->findUserByEmailOrUsername($data['email'], $data['username'])) {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL .'/registration');
+        }
+
+        //Passed all validation checks.
+        //Now going to hash password
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+        if ($this->model('User_model')->register($data)) {
+            Flasher::setFlash('berhasil','ditambahkan','success');
+            header('Location: '. BASEURL .'/registration');
+        } else {
+            Flasher::setFlash('gagal','ditambahkan','danger');
+            header('Location: '. BASEURL .'/registration');
+        }
+
+    }
+
     public function login(){
         //Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

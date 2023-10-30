@@ -36,4 +36,24 @@ class User_model {
         }
     }
 
+    public function register($data)
+    {
+        $this->db->query('INSERT INTO adminusers (name, email, nip, kelas, username, password) 
+        VALUES (:name, :email, :nip, :kelas, :username, :password)');
+        //Bind values
+        $this->db->bind(':name', $data['nama']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':nip', $data['nip']);
+        $this->db->bind(':kelas', $data['kelas']);
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':password', $data['password']);
+
+        //Execute
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
