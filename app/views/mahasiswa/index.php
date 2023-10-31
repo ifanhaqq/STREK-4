@@ -10,7 +10,7 @@
         <div class="col-lg-6">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
-                    Tambah Data Mahasiswa
+                    Tambah Data Siswa
             </button>
         </div>
     </div>
