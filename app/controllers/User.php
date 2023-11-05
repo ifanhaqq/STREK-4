@@ -43,6 +43,7 @@ class User extends Controller {
         } else {
             Flasher::setFlash('gagal','ditambahkan', 'akun', 'danger');
             header('Location: '. BASEURL .'/registration');
+            exit();
         }
 
     }
