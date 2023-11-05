@@ -21,13 +21,13 @@ class User extends Controller {
 
         //validate pwd
         if($data['password'] !== $data['pwdRpt']) {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan', 'akun', 'danger');
             header('Location: ' . BASEURL .'/registration');
         }
 
         //check account that already exist
         if ($this->model('User_model')->findUserByEmailOrUsername($data['email'], $data['username'])) {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan', 'akun', 'danger');
             header('Location: ' . BASEURL .'/registration');
         }
 
@@ -36,10 +36,10 @@ class User extends Controller {
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         if ($this->model('User_model')->register($data)) {
-            Flasher::setFlash('berhasil','ditambahkan','success');
+            Flasher::setFlash('berhasil','ditambahkan', 'akun', 'success');
             header('Location: '. BASEURL .'/registration');
         } else {
-            Flasher::setFlash('gagal','ditambahkan','danger');
+            Flasher::setFlash('gagal','ditambahkan', 'akun', 'danger');
             header('Location: '. BASEURL .'/registration');
         }
 

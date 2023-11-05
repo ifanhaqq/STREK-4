@@ -4,11 +4,11 @@ class Tabungan extends Controller {
     public function tambah()
     {
         if ($this->model('Tabungan_model')->tambahDataTabungan($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            Flasher::setFlash('berhasil', 'ditambahkan', 'tabungan', 'success');
             header('Location: ' . BASEURL);
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan', 'tabungan', 'danger');
             header('Location: ' . BASEURL);
             exit;
         }
@@ -17,11 +17,11 @@ class Tabungan extends Controller {
     public function tambahJumlahSaldo()
     {
         if ($this->model('Tabungan_model')->tambahSaldo($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
+            Flasher::setFlash('berhasil', 'diubah', 'tabungan', 'success');
             header('Location: ' . BASEURL);
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            Flasher::setFlash('gagal', 'diubah', 'tabungan', 'danger');
             header('Location: ' . BASEURL);
             exit;
         }
