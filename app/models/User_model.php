@@ -31,7 +31,10 @@ class User_model {
 
         if($password == $row->password){
             return $row;
-        }else{
+        } else if (password_verify($password, $row->password)){
+            return $row;
+        }
+        else{
             return false;
         }
     }
