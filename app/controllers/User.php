@@ -2,15 +2,28 @@
 
 class User extends Controller {
 
-    public function register() {
-        //Process form
-            
+    public function register() {  
         //Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+
         //Init data
+        $foto_nama = $_FILES['foto']['name'];
+        $foto_temp = $_FILES['foto']['tmp_name'];
+        $foto_size = $_FILES['foto']['size'];
+        $foto_type = $_FILES['foto']['type'];
+
+        if($foto_type != 'image/jpeg'
+                        & $foto_type != 'image/pjpeg'
+                        & $foto_type != 'image/gif'
+                        & $foto_type != 'image/png') {
+        Flasher::setFlash('gagal', 'ditambahkan', 'foto', 'danger');
+        header('Location: ' . BASEURL . '/registration');
+        exit();
+        }
         $data = [
             'nama' => trim($_POST['nama']),
+            'foto'=> $foto_nama,
             'email' => trim($_POST['email']),
             'username' => trim($_POST['username']),
             'nip' => trim($_POST['nip']),
@@ -39,6 +52,7 @@ class User extends Controller {
 
         if ($this->model('User_model')->register($data) > 0) {
             Flasher::setFlash('berhasil','ditambahkan', 'akun', 'success');
+            move_uploaded_file($foto_temp, '../../public/img/' . $foto_nama);
             header('Location: '. BASEURL .'/registration');
         } else {
             Flasher::setFlash('gagal','ditambahkan', 'akun', 'danger');
@@ -93,6 +107,16 @@ class User extends Controller {
         $_SESSION['nip'] = $user->nip;
         $_SESSION['kelas'] = $user->kelas;
         header('Location: ' . BASEURL);
+    }
+
+    public function dump()
+    {
+        $foto_nama = $_FILES['foto']['name'];
+        $foto_temp = $_FILES['foto']['tmp_name'];
+        $foto_size = $_FILES['foto']['size'];
+        $foto_type = $_FILES['foto']['type'];
+
+        var_dump($foto_nama);
     }
 
 

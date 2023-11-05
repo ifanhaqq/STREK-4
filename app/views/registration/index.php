@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-6 fw-bolder">
             <?php Flasher::flash(); ?>
-            <form method="post" action="<?= BASEURL; ?>/user/register">
+            <form method="post" action="<?= BASEURL; ?>/user/register" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control border-dark" name="nama" id="nama">
@@ -13,6 +13,10 @@
                 <div class="mb-3">
                     <label for="nip" class="form-label">NIP</label>
                     <input type="text" class="form-control border-dark" name="nip" id="nip">
+                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Foto</label>
+                    <input type="file" class="form-control border-dark" name="foto" id="foto">
                 </div>
                 <div class="mb-3">
                     <label for="kelas" class="form-label">Kelas</label>
