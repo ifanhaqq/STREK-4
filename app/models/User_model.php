@@ -52,11 +52,9 @@ class User_model {
         $this->db->bind(':password', $data['password']);
 
         //Execute
-        if($this->db->execute()){
-            return true;
-        }else{
-            return false;
-        }
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
 }

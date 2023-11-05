@@ -23,19 +23,21 @@ class User extends Controller {
         if($data['password'] !== $data['pwdRpt']) {
             Flasher::setFlash('gagal', 'ditambahkan', 'akun', 'danger');
             header('Location: ' . BASEURL .'/registration');
+            exit();
         }
 
         //check account that already exist
         if ($this->model('User_model')->findUserByEmailOrUsername($data['email'], $data['username'])) {
             Flasher::setFlash('gagal', 'ditambahkan', 'akun', 'danger');
             header('Location: ' . BASEURL .'/registration');
+            exit();
         }
 
         //Passed all validation checks.
         //Now going to hash password
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-        if ($this->model('User_model')->register($data)) {
+        if ($this->model('User_model')->register($data) > 0) {
             Flasher::setFlash('berhasil','ditambahkan', 'akun', 'success');
             header('Location: '. BASEURL .'/registration');
         } else {
