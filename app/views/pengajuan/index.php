@@ -14,62 +14,37 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+                    $no = 1;
+                    foreach ($data['pgjn'] as $row) : ?>
                     <tr>
-                    <th scope="row">1</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
+                    <th scope="row"><?= $no ?></th>
+                    <td class="border border-end border-dark"><?= $row['nama'] ?></td>
+                    <td class="border border-end border-dark"><?= $row['kelas'] ?></td>
+                    <td class="border border-end border-dark"><?= $row['saldo'] ?></td>
+                    <td class="border border-end border-dark"><?= $row['alasan'] ?></td>
+                    <td class="border border-end border-dark" data-id="<?= $row['status']; ?>">
+                    <?php
+                    switch ($row['status']) {
+                        case 1:
+                            echo "Belom diverifikasi";
+                         break;
+                         case 2:
+                            echo "Permintaan diterima";
+                         break;
+                         case 0:
+                            echo "Permintaan ditolak";
+                            break;
+                        default:
+                            echo "Tidak tahu";
+                    }
+                    ?>
+                    </td>
                     </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">4</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">5</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">6</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">7</th>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    <td class="border border-end border-dark"></td>
-                    </tr>
+                    <?php
+                    $no++;
+                    endforeach;
+                    ?>
                 </tbody>
                 </table>
         </div>
