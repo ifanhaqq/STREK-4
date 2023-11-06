@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-6 fw-bolder">
             <?php Flasher::flash(); ?>
-            <form method="post" action="<?= BASEURL; ?>/user/dump" enctype="multipart/form-data">
+            <form method="post" action="<?= BASEURL; ?>/user/register" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control border-dark" name="nama" id="nama">

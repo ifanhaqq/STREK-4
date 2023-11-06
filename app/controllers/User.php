@@ -52,7 +52,7 @@ class User extends Controller {
 
         if ($this->model('User_model')->register($data) > 0) {
             Flasher::setFlash('berhasil','ditambahkan', 'akun', 'success');
-            move_uploaded_file($foto_temp, '../../public/img/' . $foto_nama);
+            move_uploaded_file($foto_temp, 'img/' . $foto_nama);
             header('Location: '. BASEURL .'/registration');
         } else {
             Flasher::setFlash('gagal','ditambahkan', 'akun', 'danger');
@@ -95,6 +95,7 @@ class User extends Controller {
         unset($_SESSION['email']);
         unset($_SESSION['nip']);
         unset($_SESSION['kelas']);
+        unset($_SESSION['foto']);
         session_destroy();
         header('Location: ' . BASEURL);
     }
@@ -102,6 +103,7 @@ class User extends Controller {
     public function createUserSession($user){
         session_start();
         $_SESSION['id'] = $user->id;
+        $_SESSION['foto'] = $user->foto;
         $_SESSION['name'] = $user->name;
         $_SESSION['email'] = $user->email;
         $_SESSION['nip'] = $user->nip;
@@ -116,9 +118,9 @@ class User extends Controller {
         $foto_size = $_FILES['foto']['size'];
         $foto_type = $_FILES['foto']['type'];
 
-        $destination = BASEURL .'img/'. $foto_nama;
+        $destination = 'img/' . $foto_nama;
 
-        if (move_uploaded_file($foto_temp, $destination)) {
+        if (move_uploaded_file($foto_temp,  $destination)) {
             echo 'sukses';
         } else {
             echo 'gagal';

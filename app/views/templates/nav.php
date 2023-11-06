@@ -3,7 +3,7 @@
     <div class="sidebar-heading border-bottom">STREK-4</div>
     <ul class="list-group mt-auto list-group-flush">
         <a href="<?= BASEURL; ?>/profile" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3 mb-4 border-end border-dark">
-            <img src="<?= BASEURL; ?>/img/profile.png" class="img-thumbnail me-2 rounded-circle" width="40" height="auto">
+            <img src="<?= BASEURL; ?>/img/<?= $_SESSION['foto'] ?>" class="img-thumbnail me-2 rounded-circle" width="40" height="auto">
             <?php if(isset($_SESSION['id'])) {
                 echo $_SESSION['name'];
             } else {
