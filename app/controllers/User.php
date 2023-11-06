@@ -116,7 +116,14 @@ class User extends Controller {
         $foto_size = $_FILES['foto']['size'];
         $foto_type = $_FILES['foto']['type'];
 
-        var_dump($foto_nama);
+        $destination = BASEURL .'img/'. $foto_nama;
+
+        if (move_uploaded_file($foto_temp, $destination)) {
+            echo 'sukses';
+        } else {
+            echo 'gagal';
+        }
+        
     }
 
 
