@@ -78,16 +78,27 @@
 
 
 
-     <!-- Modal tambah data siswa -->
-<div class="modal hide fade" id="myModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+     <!-- Modal login option -->
+<div class="modal hide fade d-flex align-items-center justify-content-center" id="myModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <h1 class="modal-title text-center fs-5" id="judulModal">LOGIN</h1>
-      </div>
+        <div class="modal-body">
+            <h1 class="modal-title text-center fs-5" id="judulModal">LOGIN</h1>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <a href="">
+                        <img src="http://localhost/STREK-4/public/img/login-student.png" class="">
+                        <div class="text-center"><button class="bg-dark rounded-pill text-white text-center">Login as student >></button></div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="">
+                        <img src="http://localhost/STREK-4/public/img/teacher-student.png" class="">
+                        <div class="text-center"><button class="bg-dark rounded-pill text-white text-center">Login as teacher >></button></div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 </div>                              
