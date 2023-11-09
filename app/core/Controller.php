@@ -9,7 +9,7 @@ class Controller {
             $view = 'login';
             require_once '../app/views/login/index.php';
         } else {
-        require_once '../app/views/' . $view . '.php';
+        require_once '../app/views/admin/' . $view . '.php';
         }
     }
 
