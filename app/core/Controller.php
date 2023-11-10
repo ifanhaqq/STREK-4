@@ -9,7 +9,11 @@ class Controller {
             $view = 'login';
             require_once '../app/views/login/index.php';
         } else {
-        require_once '../app/views/admin/' . $view . '.php';
+            if ($_SESSION['type'] == 'admin') {
+                require_once '../app/views/admin/' . $view . '.php';
+            } else if ($_SESSION['type'] == 'user') {
+                require_once '../app/views/user/'. $view . '.php';
+            }
         }
     }
 

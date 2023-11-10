@@ -96,6 +96,8 @@ class User extends Controller {
         unset($_SESSION['nip']);
         unset($_SESSION['kelas']);
         unset($_SESSION['foto']);
+        unset($_SESSION['type']);
+        unset($_SESSION['tab_id']);
         session_destroy();
         header('Location: ' . BASEURL);
     }
@@ -108,6 +110,8 @@ class User extends Controller {
         $_SESSION['email'] = $user->email;
         $_SESSION['nip'] = $user->nip;
         $_SESSION['kelas'] = $user->kelas;
+        $_SESSION['type'] = $user->type;
+        $_SESSION['tab_id'] = $user->tab_id;
         header('Location: ' . BASEURL);
     }
 

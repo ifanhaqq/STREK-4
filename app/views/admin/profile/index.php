@@ -4,7 +4,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-2 mt-4">
-            <img src="<?= BASEURL; ?>/img/profile.png" class="rounded-circle" width="200">
+            <img src="<?= BASEURL; ?>/img/<?php if(isset($_SESSION['id'])) {echo $_SESSION['foto'];} ?>" class="rounded-circle" width="200">
         </div>
         <div class="col-5 ms-4">
             <?php if(isset($_SESSION['id'])) : ?>

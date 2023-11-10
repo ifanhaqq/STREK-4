@@ -9,7 +9,7 @@ class User_model {
     }
 
     public function findUserByEmailOrUsername($email, $username){
-        $this->db->query('SELECT * FROM adminusers WHERE username = :username OR email = :email');
+        $this->db->query('SELECT * FROM users WHERE username = :username OR email = :email');
         $this->db->bind(':username', $username);
         $this->db->bind(':email', $email);
 
@@ -41,7 +41,7 @@ class User_model {
 
     public function register($data)
     {
-        $this->db->query('INSERT INTO adminusers (name, email, foto, nip, kelas, username, password) 
+        $this->db->query('INSERT INTO users (name, email, foto, nip, kelas, username, password) 
         VALUES (:name, :email, :foto, :nip, :kelas, :username, :password)');
         //Bind values
         $this->db->bind(':name', $data['nama']);

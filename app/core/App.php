@@ -9,6 +9,8 @@ class App {
         error_reporting(0);
         $url = $this->parseURL();
         
+        if ($_SESSION['type'] == 'user') $this->controller = 'Main';
+
         // controller
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];

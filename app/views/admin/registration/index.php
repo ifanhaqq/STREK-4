@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="row mb-5">
-        <h1>Registrasi Akun Guru</h1>
+        <h1>Registrasi Akun Siswa</h1>
     </div>
     <div class="row">
         <div class="col-6 fw-bolder">
@@ -11,7 +11,7 @@
                     <input type="text" class="form-control border-dark" name="nama" id="nama">
                 </div>
                 <div class="mb-3">
-                    <label for="nip" class="form-label">NIP</label>
+                    <label for="nip" class="form-label">NISN</label>
                     <input type="text" class="form-control border-dark" name="nip" id="nip">
                 </div>
                 <div class="mb-3">
