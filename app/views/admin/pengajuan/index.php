@@ -10,6 +10,7 @@
                     <th scope="col" class="border border-end border-dark">Kelas</th>
                     <th scope="col" class="border border-end border-dark">Saldo</th>
                     <th scope="col" class="border border-end border-dark">Alasan</th>
+                    <th scope="col" class="border border-end border-dark">Test</th>
                     <th scope="col" class="border border-end border-dark">Status</th>
                     </tr>
                 </thead>
@@ -23,6 +24,10 @@
                     <td class="border border-end border-dark"><?= $row['kelas'] ?></td>
                     <td class="border border-end border-dark"><?= $row['saldo'] ?></td>
                     <td class="border border-end border-dark"><?= $row['alasan'] ?></td>
+                    <td class="border border-end border-dark">
+                        <a href=""><i class="bi bi-x-circle-fill"></i></a> |
+                        <a href=""><i class="bi bi-check-circle-fill"></i></a>
+                    </td>
                     <td class="border border-end border-dark" data-id="<?= $row['status']; ?>">
                     <?php
                     switch ($row['status']) {
