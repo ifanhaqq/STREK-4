@@ -11,12 +11,14 @@
             </tr>
         </thead>
         <tbody>
-            <?php ?>
+            <?php foreach ($data['mutasi'] as $row) : ?>
             <tr>
-            <td scope="row"><?= date("Y-m-d H:i:s") ?></td>
-            <td class="border border-end border-dark">sdf</td>
+            <td scope="row"><?= $row['tanggal'] ?></td>
+            <td class="border border-end border-dark" data-id="<?= $row['jumlah'] ?>">
+            <?php if ($row['jumlah'] < 0) {echo "Rp. " . $row['jumlah'];} else {echo "Rp. +" . $row['jumlah'];}  ?>
+            </td>
             </tr>
-            <?php ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
     </div>

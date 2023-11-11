@@ -59,10 +59,11 @@ class Tabungan_model {
 
     public function addSaldo($data)
     {
-        $query = 'CALL addSaldo(:id, :saldo)';
+        $query = 'CALL addSaldo(:id, :saldo, :tanggal)';
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
         $this->db->bind('saldo', $data['saldo']);
+        $this->db->bind('tanggal', $data['tanggal']);
 
         $this->db->execute();
 
