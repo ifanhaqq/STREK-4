@@ -56,4 +56,16 @@ class Tabungan_model {
         return $this->db->rowCount();
 
     }
+
+    public function addSaldo($data)
+    {
+        $query = 'CALL addSaldo(:id, :saldo)';
+        $this->db->query($query);
+        $this->db->bind('id', $data['id']);
+        $this->db->bind('saldo', $data['saldo']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
