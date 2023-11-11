@@ -1,6 +1,6 @@
 <div class="container mt-5" >
     <h1 class="h1 ms-3 mb-4">Daftar Pengajuan Pengambilan Tabungan</h1>
-    <div class="row mb-3">
+    <div class="ms-2 row mb-3">
         <div class="col-5"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajukanModal"><i class="bi bi-plus"></i>   Tambah pengajuan</button></div>
     </div>
     <div class="row">
