@@ -10,7 +10,7 @@
                 echo 'Guest';
             } ?>
         </li></a>
-        <a href="" data-bs-toggle="modal" data-bs-target="#ajukanModal" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
+        <a href="<?= BASEURL; ?>/ajukan" ><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
         <a href="<?= BASEURL; ?>/mutasi" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Mutasi</li></a>
     </ul>
     <ul class="position-absolute" style="bottom: 0">
@@ -33,39 +33,3 @@
             </div>
         </div>
     </nav>
-
-<!-- Modal pengajuan -->
-<div class="modal fade" id="ajukanModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="judulModal">Pengajuan pengambilan tabungan</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="<?= BASEURL; ?>/tabungan/tambah" method="post">
-            <div class="mb-3 nisn-class">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama">
-            </div>
-            <div class="mb-3">
-                <label for="kelas" class="form-label">Kelas</label>
-                <input type="text" class="form-control" id="kelas" name="kelas">
-            </div>
-            <div class="mb-3">
-                <label for="saldo" class="form-label">Saldo</label>
-                <input type="text" class="form-control" id="saldo" name="saldo">
-            </div>
-            <div class="mb-3">
-                <label for="alasan" class="form-label">Alasan</label>
-                <textarea class="form-control" name="alasan" id="alasan" cols="4" rows="4"></textarea>
-            </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Tambah Data</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>

@@ -6,12 +6,11 @@
                 <thead class="bg-dark text-white">
                     <tr>
                     <th scope="col" class="border border-end border-dark" style="width: 5%">No</th>
-                    <th scope="col" class="border border-end border-dark">Nama</th>
-                    <th scope="col" class="border border-end border-dark">Kelas</th>
-                    <th scope="col" class="border border-end border-dark">Saldo</th>
-                    <th scope="col" class="border border-end border-dark">Alasan</th>
-                    <th scope="col" class="border border-end border-dark">Test</th>
-                    <th scope="col" class="border border-end border-dark">Status</th>
+                    <th scope="col" class="border border-end border-dark text-center">Nama</th>
+                    <th scope="col" class="border border-end border-dark text-center">Kelas</th>
+                    <th scope="col" class="border border-end border-dark text-center">Saldo</th>
+                    <th scope="col" class="border border-end border-dark text-center">Alasan</th>
+                    <th scope="col" class="border border-end border-dark text-center" width="100px">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,21 +23,18 @@
                     <td class="border border-end border-dark"><?= $row['kelas'] ?></td>
                     <td class="border border-end border-dark"><?= $row['saldo'] ?></td>
                     <td class="border border-end border-dark"><?= $row['alasan'] ?></td>
-                    <td class="border border-end border-dark">
-                        <a href=""><i class="bi bi-x-circle-fill"></i></a> |
-                        <a href=""><i class="bi bi-check-circle-fill"></i></a>
-                    </td>
                     <td class="border border-end border-dark" data-id="<?= $row['status']; ?>">
                     <?php
                     switch ($row['status']) {
                         case 1:
-                            echo "Belom diverifikasi";
+                            echo '<div class="text-center"><a href=""><i class="bi bi-x-circle-fill" style="color: red;"></i></a> |
+                            <a href=""><i class="bi bi-check-circle-fill" style="color: green;"></i></a></div>';
                          break;
                          case 2:
-                            echo "Permintaan diterima";
+                            echo '<div class="text-center"><i class="bi bi-check-circle-fill" style="color: green;"></i></div>';
                          break;
                          case 0:
-                            echo "Permintaan ditolak";
+                            echo '<div class="text-center"><i class="bi bi-x-circle-fill" style="color: red;"></i></div>';
                             break;
                         default:
                             echo "Tidak tahu";
