@@ -2,6 +2,7 @@
     <div class="row">
         <h1 class="h1 ms-3 mb-4">Daftar Pengajuan Pengambilan Tabungan</h1>
         <div class="col-10">
+        <?php Flasher::flash(); ?>
             <table class="table table-striped border border-dark">
                 <thead class="bg-dark text-white">
                     <tr>
@@ -19,7 +20,7 @@
                     foreach ($data['pgjn'] as $row) : ?>
                     <tr>
                     <th scope="row"><?= $no ?></th>
-                    <td class="border border-end border-dark"><?= $row['id'] ?></td>
+                    <td class="border border-end border-dark"><?= $row['nama'] ?></td>
                     <td class="border border-end border-dark"><?= $row['kelas'] ?></td>
                     <td class="border border-end border-dark">Rp. <?= $row['saldo'] ?></td>
                     <td class="border border-end border-dark"><?= $row['alasan']; ?></td>
@@ -27,8 +28,8 @@
                     <?php
                     switch ($row['status']) {
                         case 1:
-                            echo '<div class="text-center"><a href="" class="setStatus" data-bs-toggle="modal" data-bs-target="#tolakModal" data-id="' . $row['tab_id'] . '"><i class="bi bi-x-circle-fill" style="color: red;"></i></a> |
-                            <a href="" class="accStatus" data-bs-toggle="modal" data-bs-target="#terimaModal" data-id="' . $row['tab_id'] . '"><i class="bi bi-check-circle-fill" style="color: green;"></i></a></div>';
+                            echo '<div class="text-center"><a href="" class="setStatus" data-bs-toggle="modal" data-bs-target="#tolakModal" data-id="' . $row['id'] . '"><i class="bi bi-x-circle-fill" style="color: red;"></i></a> |
+                            <a href="" class="accStatus" data-bs-toggle="modal" data-bs-target="#terimaModal" data-id="' . $row['id'] . '"><i class="bi bi-check-circle-fill" style="color: green;"></i></a></div>';
                          break;
                          case 2:
                             echo '<div class="text-center"><i class="bi bi-check-circle-fill" style="color: green;"></i></div>';
@@ -86,6 +87,7 @@
       <div class="modal-body">
       <form action="<?= BASEURL; ?>/pengajuan/terima" method="post">
         <input type="hidden" class="form-control" name="tabid" id="tabid">
+        <input type="hidden" class="form-control" name="pgid" id="pgid">
         <input type="hidden" class="form-control" name="nilai" id="nilai">
       </div>
       <div class="modal-footer">

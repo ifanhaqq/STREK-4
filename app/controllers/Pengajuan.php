@@ -15,17 +15,21 @@ class Pengajuan extends Controller {
     public function tolak()
     {
         if ($this->model('Pengajuan_model')->refReq(($_POST['id'])) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
             header('Location: ' . BASEURL . '/pengajuan');
         } else {
-            echo 'gagal';
+            Flasher::setFlash('gagal', 'diubah', 'status', 'danger');
+            header('Location: ' . BASEURL . '/pengajuan');
         }
     }
 
     public function terima() {
         if ($this->model('Pengajuan_model')->accReq(($_POST)) > 0 ) {
+            Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
             header('Location: ' . BASEURL . '/pengajuan');
         } else {
-            echo 'gagal';
+            Flasher::setFlash('gagal', 'diubah', 'status', 'danger');
+            header('Location: ' . BASEURL . '/pengajuan');
         }
     }
 

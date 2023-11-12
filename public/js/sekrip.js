@@ -11,7 +11,7 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function(data) {
-                $('#id').val(data.tab_id);
+                $('#id').val(data.id);
             }
         });
 
@@ -27,9 +27,11 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function(data) {
-                console.log(data.id);
-                $('#tabid').val(data.id);
+                console.log(data);
+                $('#tabid').val(data.tab_id);
+                $('#pgid').val(data.id);
                 $('#nilai').val(data.saldo);
+
             }
         });
 

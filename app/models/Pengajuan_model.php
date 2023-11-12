@@ -23,7 +23,7 @@ class Pengajuan_model {
 
     public function getPengajuanByIdAssoc($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE tab_id = :id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $this->db->bind('id', $id);
         return $this->db->singleAssoc();
     }
@@ -47,7 +47,7 @@ class Pengajuan_model {
 
     public function refReq($id) {
         $refuse = '0';
-        $this->db->query('UPDATE pengajuan SET status = :refuse WHERE tab_id = :id');
+        $this->db->query('UPDATE pengajuan SET status = :refuse WHERE id = :id');
         $this->db->bind('id', $id);
         $this->db->bind('refuse', $refuse);
         $this->db->execute();
@@ -57,9 +57,10 @@ class Pengajuan_model {
 
     public function accReq($data) {
         $accept = '2';
-        $this->db->query('CALL accPengajuan(:tabid, :nilai, :accept)');
+        $this->db->query('CALL accPengajuan(:tabid, :nilai, :accept, :pgid)');
         $this->db->bind('tabid', $data['tabid']);
         $this->db->bind('nilai', $data['nilai']);
+        $this->db->bind('pgid', $data['pgid']);
         $this->db->bind('accept', $accept);
         $this->db->execute();
         

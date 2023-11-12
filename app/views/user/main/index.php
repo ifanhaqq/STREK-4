@@ -6,7 +6,7 @@
             <table class="table table-border fs-3">
                 <tbody>
                     <tr>
-                        <th width="10%">Nama</th>
+                        <td width="10%">Nama</td>
                         <td>:</td>
                         <td><?= $data['tbg']['nama']; ?></td>
                     </tr>
