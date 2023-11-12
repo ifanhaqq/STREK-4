@@ -21,6 +21,14 @@ class Pengajuan extends Controller {
         }
     }
 
+    public function terima() {
+        if ($this->model('Pengajuan_model')->accReq(($_POST)) > 0 ) {
+            header('Location: ' . BASEURL . '/pengajuan');
+        } else {
+            echo 'gagal';
+        }
+    }
+
     public function gettabid()
     {
         echo json_encode($this->model('Pengajuan_model')->getPengajuanByIdAssoc($_POST['id']));
