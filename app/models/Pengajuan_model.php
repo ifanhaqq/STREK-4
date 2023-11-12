@@ -21,9 +21,18 @@ class Pengajuan_model {
         return $this->db->resultSet();
     }
 
-    public function refReq($id) {
-        $this->db->query('UPDATE '. $this->table . ' SET status = 0 WHERE tab_id = :id');
+    public function getPengajuanByIdAssoc($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE tab_id = :id');
         $this->db->bind('id', $id);
+        return $this->db->singleAssoc();
+    }
+
+    public function refReq($id) {
+        $refuse = '2';
+        $this->db->query('UPDATE pengajuan SET status = :refuse WHERE tab_id = :id');
+        $this->db->bind('id', $id);
+        $this->db->bind('refuse', $refuse);
         $this->db->execute();
         
         return $this->db->rowCount();

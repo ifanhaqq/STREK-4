@@ -14,7 +14,7 @@ class Pengajuan extends Controller {
 
     public function tolak()
     {
-        if ($this->model('Pengajuan_model')->refReq(($_POST)) > 0) {
+        if ($this->model('Pengajuan_model')->refReq(($_POST['id'])) > 0) {
             header('Location: ' . BASEURL . '/pengajuan');
         } else {
             echo 'gagal';
@@ -23,6 +23,6 @@ class Pengajuan extends Controller {
 
     public function gettabid()
     {
-        echo json_encode($this->model('Pengajuan_model')->getPengajuanById($_POST['id']));
+        echo json_encode($this->model('Pengajuan_model')->getPengajuanByIdAssoc($_POST['id']));
     }
 }
