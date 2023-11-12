@@ -2,6 +2,7 @@ $(function() {
     
     $('.tambahModal').on('click', function () {
         const id = $(this).data('id');
+        console.log(id);
         
         $.ajax({
             url: 'http://localhost/strek-4/public/tabungan/getsaldo',
@@ -14,4 +15,10 @@ $(function() {
         });
     });
 
+
+    $('.setStatus').on('click', function () {
+        const id = $(this).data('id');
+        console.log(id);
+
+    });
 });

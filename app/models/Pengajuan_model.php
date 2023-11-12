@@ -20,4 +20,12 @@ class Pengajuan_model {
         $this->db->bind('id', $id);
         return $this->db->resultSet();
     }
+
+    public function refReq($id) {
+        $this->db->query('UPDATE '. $this->table . ' SET status = 0 WHERE tab_id = :id');
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        
+        return $this->db->rowCount();
+    }
 }
