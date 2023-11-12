@@ -27,8 +27,8 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function(data) {
-                console.log(data.tab_id);
-                $('#tabid').val(data.tab_id);
+                console.log(data.id);
+                $('#tabid').val(data.id);
                 $('#nilai').val(data.saldo);
             }
         });

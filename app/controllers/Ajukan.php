@@ -10,4 +10,14 @@ class Ajukan extends Controller {
         $this->view('pengajuan/index', $data);
         $this->view('templates/footer');
     }
+
+    public function tambahPengajuan()
+    {
+        if ($this->model('Pengajuan_model')->addPengajuan($_POST) > 0) {
+            header('Location: ' . BASEURL . '/ajukan');
+        } else {
+            echo 'gagal';
+        }
+
+    }
 }

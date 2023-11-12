@@ -62,12 +62,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL; ?>/" method="post">
+        <form action="<?= BASEURL; ?>/ajukan/tambahPengajuan" method="post">
             <input type="hidden" class="form-control" id="nama" name="nama" value="<?= $_SESSION['name']; ?>">
-            <input type="hidden" class="form-control" id="kelas" name="kelas" value="<?= $_SESSION['kelas']?>">
+            <input type="hidden" class="form-control" id="kelas" name="kelas" value="<?= $_SESSION['kelas']; ?>">
+            <input type="hidden" id="tabid" name="tabid" value="<?= $_SESSION['tab_id']; ?>">
             <div class="mb-3">
                 <label for="saldo" class="form-label">Jumlah saldo</label>
-                <input type="text" class="form-control" id="saldo" name="saldo">
+                <input type="number" class="form-control" id="saldo" name="saldo">
             </div>
             <div class="mb-3">
                 <label for="alasan" class="form-label">Alasan</label>

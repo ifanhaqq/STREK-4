@@ -28,6 +28,23 @@ class Pengajuan_model {
         return $this->db->singleAssoc();
     }
 
+    public function addPengajuan($data)
+    {
+        $neutral = '1';
+        $this->db->query('INSERT INTO pengajuan(nama, kelas, saldo, alasan, status, tab_id) 
+                        VALUES (:nama, :kelas, :saldo, :alasan, :status, :tab_id)');
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('saldo', $data['saldo']);
+        $this->db->bind('alasan', $data['alasan']);
+        $this->db->bind('tab_id', $data['tabid']);
+        $this->db->bind('status', $neutral);
+        
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function refReq($id) {
         $refuse = '0';
         $this->db->query('UPDATE pengajuan SET status = :refuse WHERE tab_id = :id');

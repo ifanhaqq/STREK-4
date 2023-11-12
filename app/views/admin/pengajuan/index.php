@@ -19,7 +19,7 @@
                     foreach ($data['pgjn'] as $row) : ?>
                     <tr>
                     <th scope="row"><?= $no ?></th>
-                    <td class="border border-end border-dark"><?= $row['nama'] ?></td>
+                    <td class="border border-end border-dark"><?= $row['id'] ?></td>
                     <td class="border border-end border-dark"><?= $row['kelas'] ?></td>
                     <td class="border border-end border-dark">Rp. <?= $row['saldo'] ?></td>
                     <td class="border border-end border-dark"><?= $row['alasan']; ?></td>
