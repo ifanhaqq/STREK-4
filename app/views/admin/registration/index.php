@@ -7,6 +7,10 @@
             <?php Flasher::flash(); ?>
             <form method="post" action="<?= BASEURL; ?>/user/register" enctype="multipart/form-data">
                 <div class="mb-3">
+                    <label for="nama" class="form-label">ID Tabungan</label>
+                    <input type="number" class="form-control border-dark" name="tabid" id="tabid">
+                </div>
+                <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control border-dark" name="nama" id="nama">
                 </div>

@@ -41,8 +41,9 @@ class User_model {
 
     public function register($data)
     {
-        $this->db->query('INSERT INTO users (name, email, foto, nip, kelas, username, password) 
-        VALUES (:name, :email, :foto, :nip, :kelas, :username, :password)');
+        $type = 'user';
+        $this->db->query('INSERT INTO users (name, email, foto, nip, kelas, username, password, type, tab_id) 
+        VALUES (:name, :email, :foto, :nip, :kelas, :username, :password, :type, :tabid)');
         //Bind values
         $this->db->bind(':name', $data['nama']);
         $this->db->bind(':email', $data['email']);
@@ -51,6 +52,8 @@ class User_model {
         $this->db->bind(':kelas', $data['kelas']);
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':password', $data['password']);
+        $this->db->bind(':tabid', $data['tabid']);
+        $this->db->bind(':type', $type);
 
         //Execute
         $this->db->execute();

@@ -29,6 +29,7 @@ class User extends Controller {
             'nip' => trim($_POST['nip']),
             'kelas' => trim($_POST['kelas']),
             'password' => trim($_POST['password']),
+            'tabid' => trim($_POST['tabid']),
             'pwdRpt' => trim($_POST['pwdRpt'])
         ];
 
