@@ -6,6 +6,12 @@
     border-radius: 50%;
 }
 
+.bg-form {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ccc;
+    padding: 10px;
+}
+
 .GFG { 
     color: rgb(116, 218, 121); 
     font-size: 50px; 
@@ -32,3 +38,9 @@
 a {
     text-decoration: none;
 }
+
+.bg-sekolah {
+    background-image: url('http://localhost/STREK-4/public/img/bg-sekolah.jpeg');
+    height: 100vh;
+}
+    

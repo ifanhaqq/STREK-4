@@ -10,6 +10,7 @@
                 echo 'Guest';
             } ?>
         </li></a>
+        <a href="<?= BASEURL; ?>/tabungan" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Daftar Tabungan</li></a>
         <a href="<?= BASEURL; ?>/pengajuan" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
         <a href="<?= BASEURL; ?>/registration" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Registrasi</li></a>
     </ul>
@@ -22,7 +23,7 @@
 <!-- Page content wrapper-->
 <div id="page-content-wrapper">
     <!-- Top navigation-->
-    <nav class="navbar navbar-expand-lg navbar-success bg-strek border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-success bg-white border-bottom">
         <div class="container-fluid">
             <button class="btn" id="sidebarToggle"><i class="bi bi-border-width"></i></button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
