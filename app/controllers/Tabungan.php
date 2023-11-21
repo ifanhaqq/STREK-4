@@ -5,7 +5,7 @@ class Tabungan extends Controller {
     public function index()
     {
         $data['title'] = 'Daftar Tabungan';
-        $data['tbg'] = $this->model('Tabungan_model')->getAllTabungan();
+        $data['tbg'] = $this->model('Tabungan_model')->getTabunganByGrade($_SESSION['kelas']);
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');
@@ -41,5 +41,10 @@ class Tabungan extends Controller {
     public function getsaldo()
     {
         echo json_encode($this->model('Tabungan_model')->getTabunganByIdAssoc($_POST['id']));
+    }
+
+    public function dump()
+    {
+        echo var_dump($_POST);
     }
 }

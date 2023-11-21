@@ -13,6 +13,12 @@ class Tabungan_model {
         $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY nama ASC');
         return $this->db->resultSet();
     }
+    public function getTabunganByGrade($kelas)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kelas = :kelas ORDER BY nama ASC');
+        $this->db->bind('kelas', $kelas);
+        return $this->db->resultSet();
+    }
 
     public function getTabunganById($id)
     {
@@ -30,12 +36,13 @@ class Tabungan_model {
 
     public function tambahDataTabungan($data)
     {
-        $query = "INSERT INTO tabungan(nisn, nama, gender, saldo) VALUES (:nisn, :nama, :gender, 0)";
+        $query = "INSERT INTO tabungan(nisn, nama, kelas, gender, saldo) VALUES (:nisn, :nama, :kelas, :gender, 0)";
 
         $this->db->query($query);
         $this->db->bind('nisn', $data['nisn']);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('gender', $data['gender']);
+        $this->db->bind('kelas', $data['kelas']);
 
         $this->db->execute();
 
