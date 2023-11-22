@@ -4,7 +4,7 @@ class Pengajuan extends Controller {
     public function index()
     {
         $data['title'] = 'Menu Pengajuan';
-        $data['pgjn'] = $this->model('Pengajuan_model')->getAllPengajuan();
+        $data['pgjn'] = $this->model('Pengajuan_model')->getPengajuanByGrade($_SESSION['kelas']);
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');

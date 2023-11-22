@@ -4,7 +4,7 @@ class Main extends Controller {
     public function index()
     {
         $data['title'] = 'Home';
-        $data['tbg'] = $this->model('Tabungan_model')->getTabunganByIdAssoc($_SESSION['tab_id']);
+        $data['tbg'] = $this->model('Tabungan_model')->getTabunganByIdAssoc($_SESSION['nip']);
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');

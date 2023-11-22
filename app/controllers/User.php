@@ -29,7 +29,6 @@ class User extends Controller {
             'nip' => trim($_POST['nip']),
             'kelas' => trim($_POST['kelas']),
             'password' => trim($_POST['password']),
-            'tabid' => trim($_POST['tabid']),
             'pwdRpt' => trim($_POST['pwdRpt'])
         ];
 
@@ -118,18 +117,7 @@ class User extends Controller {
 
     public function dump()
     {
-        $foto_nama = $_FILES['foto']['name'];
-        $foto_temp = $_FILES['foto']['tmp_name'];
-        $foto_size = $_FILES['foto']['size'];
-        $foto_type = $_FILES['foto']['type'];
-
-        $destination = 'img/' . $foto_nama;
-
-        if (move_uploaded_file($foto_temp,  $destination)) {
-            echo 'sukses';
-        } else {
-            echo 'gagal';
-        }
+        echo var_dump($_POST);
         
     }
 

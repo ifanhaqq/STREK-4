@@ -14,6 +14,13 @@ class Pengajuan_model {
         return $this->db->resultSet();
     }
 
+    public function getPengajuanByGrade($kelas)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kelas = :kelas ORDER BY nama ASC');
+        $this->db->bind('kelas' , $kelas);
+        return $this->db->resultSet();
+    }
+
     public function getPengajuanById($id)
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE tab_id = :id');

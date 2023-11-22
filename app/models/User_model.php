@@ -42,8 +42,8 @@ class User_model {
     public function register($data)
     {
         $type = 'user';
-        $this->db->query('INSERT INTO users (name, email, foto, nip, kelas, username, password, type, tab_id) 
-        VALUES (:name, :email, :foto, :nip, :kelas, :username, :password, :type, :tabid)');
+        $this->db->query('INSERT INTO users (name, email, foto, nip, kelas, username, password, type) 
+        VALUES (:name, :email, :foto, :nip, :kelas, :username, :password, :type)');
         //Bind values
         $this->db->bind(':name', $data['nama']);
         $this->db->bind(':email', $data['email']);
@@ -52,13 +52,24 @@ class User_model {
         $this->db->bind(':kelas', $data['kelas']);
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':password', $data['password']);
-        $this->db->bind(':tabid', $data['tabid']);
         $this->db->bind(':type', $type);
 
         //Execute
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function getAllUserByGrade($kelas)
+    {
+        $type = 'user';
+
+        $query = 'SELECT * FROM users WHERE kelas = :kelas AND type = :type';
+        $this->db->query($query);
+        $this->db->bind('kelas', $kelas);
+        $this->db->bind('type', $type);
+
+        return $this->db->resultSet();
     }
 
 }

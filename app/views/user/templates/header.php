@@ -8,5 +8,5 @@
     <link href="http://localhost/STREK-4/public/css/style.css" rel="stylesheet">
     <link href="http://localhost/STREK-4/public/css/styles.css" rel="stylesheet">
 </head>
-<body class="bg-sekolah" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('http://localhost/STREK-4/public/img/bg-sekolah.jpeg');; background-size: cover; ">
+<body class="bg-sekolah" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('http://localhost/STREK-4/public/img/bg-sekolah.jpeg');; background-size: cover; background-repeat: repeat-y; ">
 <div class="d-flex" id="wrapper">

@@ -29,7 +29,7 @@ class Tabungan_model {
 
     public function getTabunganByIdAssoc($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE nisn =:id');
         $this->db->bind('id', $id);
         return $this->db->singleAssoc();
     }
