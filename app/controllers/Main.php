@@ -11,4 +11,9 @@ class Main extends Controller {
         $this->view('main/index', $data);
         $this->view('templates/footer');
     }
+
+    public function dump()
+    {
+        echo $_SESSION['nip'];
+    }
 }
