@@ -43,8 +43,7 @@
                 <td class="border border-end border-dark">Rp.
                   <?= $row['saldo'] ?>
                 </td>
-                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal"
-                    data-id="<?= $row['id']; ?>"><i class="bi bi-plus-lg"></i></a></td>
+                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal" data-id="<?= $row['id']; ?>"><i class="bi bi-plus-lg"></i></a></td>
               </tr>
               <?php
               $no++;
