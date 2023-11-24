@@ -36,7 +36,7 @@ class Tabungan_model {
 
     public function getTabunganByIdAssoci($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id =:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE nisn =:id');
         $this->db->bind('id', $id);
         return $this->db->singleAssoc();
     }
@@ -73,11 +73,12 @@ class Tabungan_model {
 
     public function addSaldo($data)
     {
-        $query = 'CALL addSaldo(:id, :saldo, :tanggal)';
+        $query = 'CALL addSaldo(:id, :saldo, :tanggal, :nisn)';
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
         $this->db->bind('saldo', $data['saldo']);
         $this->db->bind('tanggal', $data['tanggal']);
+        $this->db->bind('nisn', $data['nis']);
 
         $this->db->execute();
 

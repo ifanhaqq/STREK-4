@@ -4,7 +4,7 @@ class Mutasi extends Controller {
     public function index()
     {
         $data['title'] = 'Mutasi';
-        $data['mutasi'] = $this->model('Mutasi_model')->getMutasiById($_SESSION['tab_id']);
+        $data['mutasi'] = $this->model('Mutasi_model')->getMutasiByNisn($_SESSION['nip']);
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');

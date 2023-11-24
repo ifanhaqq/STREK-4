@@ -8,7 +8,9 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function(data) {
+                console.log(data);
                 $('#id').val(data.id);
+                $('#nis').val(data.nisn);
             }
         });
     });
@@ -24,7 +26,6 @@ $(function() {
             dataType: 'json',
             success: function(data) {
                 console.log(data);
-                $('#nisn').val(data.nisn);
                 $('#pgid').val(data.id);
                 $('#nilai').val(data.saldo);
 

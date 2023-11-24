@@ -43,7 +43,7 @@
                 <td class="border border-end border-dark">Rp.
                   <?= $row['saldo'] ?>
                 </td>
-                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal" data-id="<?= $row['id']; ?>"><i class="bi bi-plus-lg"></i></a></td>
+                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal" data-id="<?= $row['nisn']; ?>"><i class="bi bi-plus-lg"></i></a></td>
               </tr>
               <?php
               $no++;
@@ -100,8 +100,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL; ?>/tabungan/tambahJumlahSaldo" method="post">
+        <form action="<?= BASEURL; ?>/tabungan/tambahjumlahsaldo" method="post">
           <input type="hidden" name="id" id="id">
+          <input type="hidden" name="nis" id="nis">
           <div class="mb-3">
             <label for="saldo" class="form-label">Masukkan Jumlah Saldo</label>
             <input type="number" class="form-control" id="saldo" name="saldo">
