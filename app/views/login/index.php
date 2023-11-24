@@ -64,6 +64,7 @@
                                         <div class="form-group mb-4">
                                             <input class="form-control" placeholder="Masukkan password..." name="password" type="password" required="true">
                                         </div>
+                                        <?php Flasher::loginFlash(); ?>
                                         <button type="submit" class="btn btn-dark mb-4 rounded-pill" name="submit">Sign in</button>
                                     </fieldset>
                                 </form>
@@ -74,31 +75,6 @@
             </div>
         </div>
     </div>
-
-<!-- Modal login option -->
-<!-- <div class="modal hide fade d-flex align-items-center justify-content-center" id="myModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h1 class="modal-title text-center fs-5" id="judulModal">LOGIN</h1>
-            <div class="row mt-4">
-                <div class="col-6">
-                    <a href="" data-bs-dismiss="modal" aria-label="Close">
-                        <img src="http://localhost/STREK-4/public/img/login-student.png" class="">
-                        <div class="text-center"><button class="bg-dark rounded-pill text-white text-center">Login as student >></button></div>
-                    </a>
-                </div>
-                <div class="col-6">
-                    <a href="" data-bs-dismiss="modal" aria-label="Close">
-                        <img src="http://localhost/STREK-4/public/img/teacher-student.png" class="">
-                        <div class="text-center"><button class="bg-dark rounded-pill text-white text-center">Login as teacher >></button></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-</div> -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

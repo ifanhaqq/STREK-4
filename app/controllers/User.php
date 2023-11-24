@@ -82,10 +82,14 @@ class User extends Controller {
                 //Create session
                 $this->createUserSession($loggedInUser);
             }else{
-                echo "salah";
+                Flasher::setLoginFlash('danger', 'Password yang anda masukkan', 'salah');
+                header('Location: ' . BASEURL);
+                exit;
             }
         }else{
-            echo "false";
+            Flasher::setLoginFlash('danger', 'Akun', 'tidak terdaftar');
+            header('Location: ' . BASEURL);
+            exit;
         }
     }
 
