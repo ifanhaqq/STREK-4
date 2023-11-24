@@ -19,7 +19,7 @@ class Tabungan extends Controller {
             header('Location: ' . BASEURL . '/tabungan');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'tabungan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan', 'tabungan', 'primary');
             header('Location: ' . BASEURL . '/tabungan');
             exit;
         }
@@ -32,7 +32,7 @@ class Tabungan extends Controller {
             header('Location: ' . BASEURL . '/tabungan');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'tabungan', 'danger');
+            Flasher::setFlash('gagal', 'diubah', 'tabungan', 'primary');
             header('Location: ' . BASEURL . '/tabungan');
             exit;
         }
