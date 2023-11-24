@@ -21,10 +21,10 @@ class Pengajuan_model {
         return $this->db->resultSet();
     }
 
-    public function getPengajuanById($id)
+    public function getPengajuanById($nisn)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE tab_id = :id');
-        $this->db->bind('id', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE nisn = :nisn');
+        $this->db->bind('nisn', $nisn);
         return $this->db->resultSet();
     }
 
@@ -38,13 +38,13 @@ class Pengajuan_model {
     public function addPengajuan($data)
     {
         $neutral = '1';
-        $this->db->query('INSERT INTO pengajuan(nama, kelas, saldo, alasan, status, tab_id) 
-                        VALUES (:nama, :kelas, :saldo, :alasan, :status, :tab_id)');
+        $this->db->query('INSERT INTO pengajuan(nama, kelas, saldo, alasan, status, nisn) 
+                        VALUES (:nama, :kelas, :saldo, :alasan, :status, :nisn)');
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('kelas', $data['kelas']);
         $this->db->bind('saldo', $data['saldo']);
         $this->db->bind('alasan', $data['alasan']);
-        $this->db->bind('tab_id', $data['tabid']);
+        $this->db->bind('nisn', $data['nisn']);
         $this->db->bind('status', $neutral);
         
         $this->db->execute();
@@ -64,8 +64,8 @@ class Pengajuan_model {
 
     public function accReq($data) {
         $accept = '2';
-        $this->db->query('CALL accPengajuan(:tabid, :nilai, :accept, :pgid)');
-        $this->db->bind('tabid', $data['tabid']);
+        $this->db->query('CALL accPengajuan(:nisn, :nilai, :accept, :pgid)');
+        $this->db->bind('nisn', $data['nisn']);
         $this->db->bind('nilai', $data['nilai']);
         $this->db->bind('pgid', $data['pgid']);
         $this->db->bind('accept', $accept);

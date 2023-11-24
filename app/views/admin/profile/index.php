@@ -1,33 +1,36 @@
-<div class="container mt-5">
+<div class="d-flex justify-content-center" style="margin-top: 50px">
     <div class="row">
-        <h1 class="mb-4 fw-bolder">Profil <span style="color: aqua">Guru</span></h1>
-    </div>
-    <div class="row mt-5">
-        <div class="col-2 mt-4">
-            <img src="<?= BASEURL; ?>/img/<?php if(isset($_SESSION['id'])) {echo $_SESSION['foto'];} ?>" class="rounded-circle" width="200">
-        </div>
-        <div class="col-5 ms-4">
-            <?php if(isset($_SESSION['id'])) : ?>
-            <table class="table table-borderless fs-1 fw-bolder">
-                <tbody>
-                    <tr>
-                        <th class="w-25">Nama</th>
-                        <td>:</td>
-                        <td><?= $_SESSION['name']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>NIP</td>
-                        <td>:</td>
-                        <td><?= $_SESSION['nip']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Kelas</td>
-                        <td>:</td>
-                        <td><?= $_SESSION['kelas']; ?></td>
-                    </tr>
-                </tbody>
-            </table>
-            <?php endif; ?>
+        <div class="card mb-4 opacity-100"
+            style="width: 500px; background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 20px;">
+            <div class="card-body text-center">
+                <img src="<?= BASEURL; ?>/img/<?= $_SESSION['foto']; ?>" alt="avatar" class="rounded-circle img-fluid"
+                    style="width: 200px;">
+                <h1 class="my-3 text-white display-5">
+                    <?= $_SESSION['name']; ?>
+                </h1>
+                <table class="table table-borderless">
+                    <tbody>
+                        <div style="height: 10px">
+                            <tr>
+                                <td>
+                                    <h2 class="text-white mb-1">NIP:
+                                        <?= $_SESSION['nip']; ?>
+                                    </h2>
+                                </td>
+                            </tr>
+                        </div>
+                            <tr>
+                                <td>
+                                    <h2 class="text-white mb-4">Guru Kelas
+                                        <?= $_SESSION['kelas']; ?>
+                                    </h2>
+                                </td>
+                            </tr>
+                        
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

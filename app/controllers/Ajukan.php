@@ -3,7 +3,7 @@
 class Ajukan extends Controller {
     public function index() {
         $data['title'] = 'Menu Pengajuan';
-        $data['pgjn'] = $this->model('Pengajuan_model')->getPengajuanById($_SESSION['tab_id']);
+        $data['pgjn'] = $this->model('Pengajuan_model')->getPengajuanById($_SESSION['nip']);
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');
@@ -19,5 +19,10 @@ class Ajukan extends Controller {
             echo 'gagal';
         }
 
+    }
+
+    public function dump()
+    {
+        echo var_dump($_POST);
     }
 }

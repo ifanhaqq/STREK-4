@@ -33,8 +33,13 @@ class Pengajuan extends Controller {
         }
     }
 
-    public function gettabid()
+    public function getnisn()
     {
         echo json_encode($this->model('Pengajuan_model')->getPengajuanByIdAssoc($_POST['id']));
+    }
+
+    public function dump()
+    {
+        echo var_dump($_POST);
     }
 }
