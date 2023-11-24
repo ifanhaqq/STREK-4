@@ -64,10 +64,10 @@ class Pengajuan_model {
 
     public function accReq($data) {
         $accept = '2';
-        $this->db->query('CALL accPengajuan(:nisn, :nilai, :accept, :pgid)');
+        $this->db->query('CALL accPengajuan(:nisn, :nilai, :accept, :id)');
         $this->db->bind('nisn', $data['nisn']);
         $this->db->bind('nilai', $data['nilai']);
-        $this->db->bind('pgid', $data['pgid']);
+        $this->db->bind('id', $data['id']);
         $this->db->bind('accept', $accept);
         $this->db->execute();
         

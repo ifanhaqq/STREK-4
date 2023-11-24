@@ -88,7 +88,7 @@
       <div class="modal-body">
       <form action="<?= BASEURL; ?>/pengajuan/terima" method="post">
         <input type="hidden" class="form-control" name="nisn" id="nisn">
-        <input type="hidden" class="form-control" name="pgid" id="pgid">
+        <input type="hidden" class="form-control" name="id" id="ids">
         <input type="hidden" class="form-control" name="nilai" id="nilai">
       </div>
       <div class="modal-footer">

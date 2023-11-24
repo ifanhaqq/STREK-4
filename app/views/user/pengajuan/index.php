@@ -77,6 +77,7 @@
                     <input type="hidden" class="form-control" id="kelas" name="kelas"
                         value="<?= $_SESSION['kelas']; ?>">
                     <input type="hidden" id="nisn" name="nisn" value="<?= $_SESSION['nip']; ?>">
+                    <input type="hidden" id="tgl" name="tgl" value="<?= date("Y-m-d H:i:s") ?>">
                     <div class="mb-3">
                         <label for="saldo" class="form-label">Jumlah saldo</label>
                         <input type="number" class="form-control" id="saldo" name="saldo">
