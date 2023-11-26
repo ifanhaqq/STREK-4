@@ -10,7 +10,7 @@ class Pengajuan_model {
 
     public function getAllPengajuan()
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY nama ASC');
+        $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY kelas ASC, nama');
         return $this->db->resultSet();
     }
 

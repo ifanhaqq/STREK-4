@@ -1,8 +1,8 @@
 <?php
 
 class Registration extends Controller {
-    public function index() {
-        // $data['title'] = 'Menu Registrasi';
+    public function index()
+    {
         $data['title'] = 'Menu Registrasi';
         $data['user'] = $this->model('User_model')->getAllUserByGrade($_SESSION['kelas']);
 
@@ -12,6 +12,8 @@ class Registration extends Controller {
         $this->view('templates/footer');
 
     }
+
+    
 
     public function dump()
     {

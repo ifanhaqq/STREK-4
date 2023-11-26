@@ -72,4 +72,10 @@ class User_model {
         return $this->db->resultSet();
     }
 
+    public function getAllUser()
+    {
+        $this->db->query('SELECT * FROM users ORDER BY type DESC, name');
+        return $this->db->resultSet();
+    }
+
 }

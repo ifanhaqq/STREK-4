@@ -16,12 +16,22 @@ class Tabungan extends Controller {
     {
         if ($this->model('Tabungan_model')->tambahDataTabungan($_POST) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan', 'tabungan', 'success');
-            header('Location: ' . BASEURL . '/tabungan');
-            exit;
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/tabungan');
+                exit;
+            } else if ($_SESSION['type'] = 'super') {
+                header('Location: ' . BASEURL);
+                exit;
+            }
         } else {
             Flasher::setFlash('gagal', 'ditambahkan', 'tabungan', 'primary');
-            header('Location: ' . BASEURL . '/tabungan');
-            exit;
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/tabungan');
+                exit;
+            } else if ($_SESSION['type'] = 'super') {
+                header('Location: ' . BASEURL);
+                exit;
+            }
         }
     }
 
@@ -29,12 +39,23 @@ class Tabungan extends Controller {
     {
         if ($this->model('Tabungan_model')->addSaldo($_POST) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'tabungan', 'success');
-            header('Location: ' . BASEURL . '/tabungan');
-            exit;
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/tabungan');
+                exit;
+            } else if ($_SESSION['type'] = 'super') {
+                header('Location: ' . BASEURL);
+                exit;
+            }
         } else {
             Flasher::setFlash('gagal', 'diubah', 'tabungan', 'primary');
-            header('Location: ' . BASEURL . '/tabungan');
-            exit;
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/tabungan');
+                exit;
+            } else if ($_SESSION['type'] = 'super') {
+                header('Location: ' . BASEURL);
+                exit;
+            }
+            
         }
     }
 

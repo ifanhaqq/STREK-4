@@ -10,7 +10,7 @@ class Tabungan_model {
 
     public function getAllTabungan()
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY nama ASC');
+        $this->db->query('SELECT * FROM tabungan ORDER BY kelas ASC, nama');
         return $this->db->resultSet();
     }
     public function getTabunganByGrade($kelas)

@@ -10,6 +10,7 @@ class App {
         $url = $this->parseURL();
         
         if ($_SESSION['type'] == 'user') $this->controller = 'Main';
+        else if ($_SESSION['type'] == 'super') $this->controller = 'Master';
 
         // controller
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {

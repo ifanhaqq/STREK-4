@@ -9,6 +9,11 @@ class Mutasi_model {
         $this->db = new Database;
     }
 
+    public function getAllMutasi()
+    {
+        $this->db->query('SELECT * FROM mutasi');
+        return $this->db->resultSet();
+    }
     public function getMutasiByNisn($nisn)
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE nisn = :nisn ORDER BY tanggal DESC');

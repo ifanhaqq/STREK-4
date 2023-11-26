@@ -16,20 +16,37 @@ class Pengajuan extends Controller {
     {
         if ($this->model('Pengajuan_model')->refReq(($_POST['id'])) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
-            header('Location: ' . BASEURL . '/pengajuan');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/pengajuan');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/request');
+            }
+            
         } else {
             Flasher::setFlash('gagal', 'diubah', 'status', 'danger');
-            header('Location: ' . BASEURL . '/pengajuan');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/pengajuan');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/request');
+            }
         }
     }
 
     public function terima() {
         if ($this->model('Pengajuan_model')->accReq(($_POST)) > 0 ) {
             Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
-            header('Location: ' . BASEURL . '/pengajuan');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/pengajuan');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/request');
+            }
         } else {
             Flasher::setFlash('gagal', 'diubah', 'status', 'danger');
-            header('Location: ' . BASEURL . '/pengajuan');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/pengajuan');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/request');
+            }
         }
     }
 

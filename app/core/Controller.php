@@ -13,7 +13,8 @@ class Controller {
                 require_once '../app/views/admin/' . $view . '.php';
             } else if ($_SESSION['type'] == 'user') {
                 require_once '../app/views/user/'. $view . '.php';
-            }
+            } else if ($_SESSION['type'] == 'super') require_once '../app/views/super/' . $view . '.php';
+            
         }
     }
 
