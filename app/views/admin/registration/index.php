@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="kelas" class="form-label">Kelas</label>
-                                    <input type="number" class="form-control border-dark" name="kelas" id="kelas">
+                                    <input type="number" class="form-control border-dark" name="kelas" id="kelas" value="<?= $_SESSION['kelas']; ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -54,56 +54,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 15%">
-        <div class="fw-bolder">
-            <?php Flasher::flash(); ?>
-            <div class="rounded text-white"
-                style="background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 10px;">
-                <h1 class="mb-5 text-center">Daftar Akun Siswa Kelas
-                    <?= $_SESSION['kelas']; ?>
-                </h1>
-                <table class="table table-primary table-striped fw-bold border border-dark">
-                    <thead class="table-dark text-white">
-                        <tr>
-                            <th scope="col" class="border border-end border-dark w-13">No</th>
-                            <th scope="col" class="border border-end border-dark">Nama</th>
-                            <th scope="col" class="border border-end border-dark">NISN</th>
-                            <th scope="col" class="border border-end border-dark">Username</th>
-                            <th scope="col" class="border border-end border-dark">Password</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        foreach ($data['user'] as $row): ?>
-
-                            <tr scope="row">
-                                <th scope="row">
-                                    <?= $no; ?>
-                                </th>
-                                <td class="border border-end border-dark">
-                                    <?= $row['name']; ?>
-                                </td>
-                                <td class="border border-end border-dark">
-                                    <?= $row['nip']; ?>
-                                </td>
-                                <td class="border border-end border-dark">
-                                    <?= $row['username']; ?>
-                                </td>
-                                <td class="border border-end border-dark">
-                                    <?= $row['password']; ?>
-                                </td>
-
-                            </tr>
-                            <?php
-                            $no++;
-                        endforeach; ?>
-                    </tbody>
-                </table>
+                <a href="<?= BASEURL; ?>/registration/accountlist"><button type="button" class="btn btn-primary mt-4">Lihat Daftar Akun</button></a>
             </div>
         </div>
     </div>

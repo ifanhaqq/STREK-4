@@ -10,7 +10,7 @@
                 echo 'Guest';
             } ?>
         </li></a>
-        <a href="<?= BASEURL; ?>/ajukan" ><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
+        <a href="<?= BASEURL; ?>/ajukan" style="text-decoration: none" ><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Pengajuan</li></a>
         <a href="<?= BASEURL; ?>/mutasi" style="text-decoration: none"><li class="list-group-item list-group-item-action list-group-item-secondary p-3">Mutasi</li></a>
     </ul>
     <ul class="position-absolute" style="bottom: 0">

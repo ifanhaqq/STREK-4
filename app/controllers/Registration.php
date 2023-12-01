@@ -4,7 +4,6 @@ class Registration extends Controller {
     public function index()
     {
         $data['title'] = 'Menu Registrasi';
-        $data['user'] = $this->model('User_model')->getAllUserByGrade($_SESSION['kelas']);
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');
@@ -13,7 +12,17 @@ class Registration extends Controller {
 
     }
 
-    
+    public function accountList()
+    {
+        $data['title'] = 'Menu Registrasi';
+        $data['users'] = $this->model('User_model')->getAllUserByGrade($_SESSION['kelas']);
+
+        $this->view('templates/header', $data);
+        $this->view('templates/nav');
+        $this->view('registration/accountlist', $data);
+        $this->view('templates/footer');
+
+    }
 
     public function dump()
     {
