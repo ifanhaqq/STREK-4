@@ -13,7 +13,7 @@
                             <th scope="col" class="border border-end border-dark">NISN</th>
                             <th scope="col" class="border border-end border-dark">Username</th>
                             <th scope="col" class="border border-end border-dark">Tipe</th>
-                            <th scope="col" class="border border-end border-dark" style="width: 100px">Aksi</th>
+                            <th scope="col" class="border border-end border-dark text-center" style="width: 200px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,15 +38,8 @@
                                     <?= $row['type']; ?>
                                 </td>
                                 <td class="border border-end border-dark">
-                                    <a href=""><button type="button" class="btn btn-danger rounded"></button></a>
-                                    <a href=""><button type="button" class="btn btn-warning rounded"></button></a>
-                                    <div class="row">
-                                        <div class="col-3"></div>
-                                        <div class="col-4">
-                                            <button type="button" class="btn btn-warning rounded"></button></a>
-                                        </div>
-                                    </div>
-                                   
+                                    <a href=""><button type="button" class="btn btn-warning rounded"><i class="bi bi-pencil-square"></i> Edit</button></a> | 
+                                    <a href=""><button type="button" class="btn btn-danger rounded"><i class="bi bi-trash3"></i> Hapus</button></a>
                                 </td>
 
                             </tr>
@@ -58,5 +51,5 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 </div>

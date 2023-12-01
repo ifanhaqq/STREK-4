@@ -43,4 +43,9 @@ a {
     background-image: url('http://localhost/STREK-4/public/img/bg-sekolah.jpeg');
     height: 100vh;
 }
+
+#text-stroke {
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
     
