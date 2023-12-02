@@ -70,7 +70,7 @@ class User extends Controller {
             move_uploaded_file($foto_temp, 'img/' . $foto_nama);
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/registration');
-            } else if ($_SESSION['type'] = 'super') {
+            } else if ($_SESSION['type'] == 'super') {
                 header('Location: ' . BASEURL . '/registrations');
             }
         } else {
@@ -78,8 +78,82 @@ class User extends Controller {
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/registration');
                 exit;
-            } else if ($_SESSION['type'] = 'super') {
+            } else if ($_SESSION['type'] == 'super') {
                 header('Location: ' . BASEURL . '/registrations');
+                exit;
+            }
+        }
+
+    }
+
+    public function update()
+    {
+        //Sanitize POST data
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+
+        //Init data
+        $foto_nama = $_FILES['foto']['name'];
+        $foto_temp = $_FILES['foto']['tmp_name'];
+        $foto_size = $_FILES['foto']['size'];
+        $foto_type = $_FILES['foto']['type'];
+
+        if($foto_type != 'image/jpeg'
+                        & $foto_type != 'image/pjpeg'
+                        & $foto_type != 'image/gif'
+                        & $foto_type != 'image/png') {
+        Flasher::setFlash('gagal', 'ditambahkan', 'foto', 'danger');
+        if ($_SESSION['type'] == 'admin') {
+            header('Location: ' . BASEURL . '/registration');
+            exit;
+        } else if ($_SESSION['type'] = 'super') {
+            header('Location: ' . BASEURL . '/registrations');
+            exit;
+        }
+        }
+        $data = [
+            'id' => trim($_POST['id']),
+            'nama' => trim($_POST['nama']),
+            'foto'=> $foto_nama,
+            'email' => trim($_POST['email']),
+            'username' => trim($_POST['username']),
+            'nip' => trim($_POST['nip']),
+            'kelas' => trim($_POST['kelas']),
+            'password' => trim($_POST['password']),
+            'pwdRpt' => trim($_POST['pwdRpt'])
+        ];
+
+        //validate pwd
+        if($data['password'] !== $data['pwdRpt']) {
+            Flasher::setFlash('gagal', 'ditambahkan', 'akun', 'danger');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/registration/edit');
+                exit;
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/registrations/edit');
+                exit;
+            }
+        }
+
+        //Passed all validation checks.
+        //Now going to hash password
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+        if ($this->model('User_model')->updateAccount($data) > 0) {
+            Flasher::setLoginFlash('danger','ditambahkan', 'akun');
+            move_uploaded_file($foto_temp, 'img/' . $foto_nama);
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/registration/accountlist');
+            } else if ($_SESSION['type'] = 'super') {
+                header('Location: ' . BASEURL . '/registrations/accountlist');
+            }
+        } else {
+            Flasher::setFlash('gagal','ditambahkan', 'akun', 'danger');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/registration/edit');
+                exit;
+            } else if ($_SESSION['type'] = 'super') {
+                header('Location: ' . BASEURL . '/registrations/edit');
                 exit;
             }
         }

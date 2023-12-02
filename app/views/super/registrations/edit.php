@@ -7,10 +7,11 @@
                 <div class="rounded text-white"
                     style="background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 10px;">
                     <h1 class="mb-5 text-center">Edit Data Akun</h1>
-                    <form method="post" action="<?= BASEURL; ?>/user/register" class="rounded"
+                    <form method="post" action="<?= BASEURL; ?>/user/update" class="rounded"
                         enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-6">
+                                <input type="hidden" name="id" id="id" value="<?= $data['users']['id'] ?>">
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama</label>
                                     <input type="text" class="form-control border-dark" name="nama" id="nama"
@@ -51,7 +52,7 @@
                             </div>
                         </div>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-primary rounded-pill">Tambah data</button>
+                            <button type="submit" class="btn btn-primary rounded-pill">Update</button>
                         </div>
                     </form>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
-class User_model {
+class User_model
+{
     private $db;
 
     public function __construct()
@@ -8,7 +9,8 @@ class User_model {
         $this->db = new Database;
     }
 
-    public function findUserByEmailOrUsername($email, $username){
+    public function findUserByEmailOrUsername($email, $username)
+    {
         $this->db->query('SELECT * FROM users WHERE username = :username OR email = :email');
         $this->db->bind(':username', $username);
         $this->db->bind(':email', $email);
@@ -16,9 +18,9 @@ class User_model {
         $row = $this->db->single();
 
         //Check row
-        if($this->db->rowCount() > 0){
+        if ($this->db->rowCount() > 0) {
             return $row;
-        }else{
+        } else {
             return false;
         }
     }
@@ -31,17 +33,18 @@ class User_model {
     }
 
     //Login user
-    public function login($nameOrEmail, $password){
+    public function login($nameOrEmail, $password)
+    {
         $row = $this->findUserByEmailOrUsername($nameOrEmail, $nameOrEmail);
 
-        if($row == false) return false;
+        if ($row == false)
+            return false;
 
-        if($password == $row->password){
+        if ($password == $row->password) {
             return $row;
-        } else if (password_verify($password, $row->password)){
+        } else if (password_verify($password, $row->password)) {
             return $row;
-        }
-        else{
+        } else {
             return false;
         }
     }
@@ -62,6 +65,25 @@ class User_model {
         $this->db->bind(':type', $type);
 
         //Execute
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function updateAccount($data)
+    {
+        $this->db->query('UPDATE users SET name = :name, foto = :foto, email = :email, username = :username,
+                          nip = :nip, kelas = :kelas, password= :password WHERE id = :id');
+        
+        $this->db->bind(':name', $data['nama']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':foto', $data['foto']);
+        $this->db->bind(':nip', $data['nip']);
+        $this->db->bind(':kelas', $data['kelas']);
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':password', $data['password']);
+        $this->db->bind(':id', $data['id']);
+
         $this->db->execute();
 
         return $this->db->rowCount();
