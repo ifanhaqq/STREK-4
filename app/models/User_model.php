@@ -23,6 +23,13 @@ class User_model {
         }
     }
 
+    public function getUserById($id)
+    {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+        $this->db->bind('id', $id);
+        return $this->db->singleAssoc();
+    }
+
     //Login user
     public function login($nameOrEmail, $password){
         $row = $this->findUserByEmailOrUsername($nameOrEmail, $nameOrEmail);
@@ -76,6 +83,16 @@ class User_model {
     {
         $this->db->query('SELECT * FROM users ORDER BY type DESC, name');
         return $this->db->resultSet();
+    }
+
+    public function deleteAccountById($id)
+    {
+        $this->db->query('DELETE FROM users WHERE id = :id');
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
 }

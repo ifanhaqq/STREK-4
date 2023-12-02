@@ -143,10 +143,61 @@ class User extends Controller {
         header('Location: ' . BASEURL);
     }
 
+    public function deleteAccount()
+    {
+
+        if($this->model('User_model')->deleteAccountById($_POST['id']) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus', 'akun', 'success');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/registration/accountlist');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/registrations/accountlist');
+            }
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'akun', 'danger');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/registration/accountlist');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/registrations/accountlist');
+            }
+        };
+    }
+
+    public function getaccid()
+    {
+        echo json_encode($this->model('User_model')->getUserById($_POST['id']));
+    }
+
     public function dump()
     {
         echo var_dump($_POST);
         
+    }
+
+    public function test()
+    {
+        $pw = $_POST['pw'];
+        $truepw = $_POST['truepw'];
+
+        if (password_verify($pw, $truepw) || $pw == $truepw) {
+
+            // create session
+            $_SESSION['edit_akun'] = $_POST['id_edit'];
+            
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/registration/edit');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/registrations/edit');
+            }
+        } else {
+            if ($_SESSION['type'] == 'admin') {
+                Flasher::setLoginFlash('danger', 'Password yang anda masukkan', 'salah');
+                header('Location: ' . BASEURL . '/registration/accountlist');
+            } else if ($_SESSION['type'] == 'super') {
+                Flasher::setLoginFlash('danger', 'Password yang anda masukkan', 'salah');
+                header('Location: ' . BASEURL . '/registrations/accountlist');
+            }
+        }
     }
 
 

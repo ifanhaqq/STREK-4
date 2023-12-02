@@ -24,4 +24,15 @@ class Registrations extends Controller {
         $this->view('templates/footer');
 
     }
+
+    public function edit() 
+    {
+        $data['title'] = 'Edit Akun';
+        $data['users'] = $this->model('User_model')->getUserById($_SESSION['edit_akun']);
+
+        $this->view('templates/header', $data);
+        $this->view('templates/nav');
+        $this->view('registrations/edit', $data);
+        $this->view('templates/footer');
+    }
 }

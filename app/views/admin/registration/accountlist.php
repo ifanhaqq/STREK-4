@@ -53,3 +53,39 @@
     </div>
 </div>
 </div>
+
+<!-- Modal tambah data siswa -->
+<div class="modal fade" id="tabunganModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="judulModal">Tambah Data Siswa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= BASEURL; ?>/tabungan/tambah" method="post">
+          <input type="hidden" class="form-control" id="kelas" name="kelas" value="<?= $_SESSION['kelas']; ?>">
+          <div class="mb-3 nisn-class">
+            <label for="nisn" class="form-label">NISN</label>
+            <input type="text" class="form-control" id="nisn" name="nisn">
+          </div>
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama">
+          </div>
+          <div class="mb-3">
+            <label for="gender" class="form-label">Jenis Kelamin</label>
+            <select class="form-control" name="gender" id="gender">
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Tambah Data</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

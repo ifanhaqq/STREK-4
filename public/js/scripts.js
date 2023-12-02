@@ -8,13 +8,13 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function(data) {
-                console.log(data);
                 $('#id').val(data.id);
                 $('#nis').val(data.nisn);
             }
         });
     });
 
+    
     $('.accStatus').on('click', function () {
 
         const id = $(this).data('id');
@@ -49,6 +49,37 @@ $(function() {
             }
         });
 
+    });
+
+    $('.deleteAccount').on('click', function () {
+        const id = $(this).data('id');
+
+        $.ajax({
+            url: 'http://localhost/strek-4/public/user/getaccid',
+            data: {id : id},
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $('#id').val(data.id);
+            }
+        });
+    });
+
+    $('.editAccount').on('click', function () {
+        const id = $(this).data('id');
+
+        $.ajax({
+            url: 'http://localhost/strek-4/public/user/getaccid',
+            data: {id : id},
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data.password);
+                $('#id_edit').val(data.id);
+                $('#truepw').val(data.password);
+            }
+        });
     });
 
     
