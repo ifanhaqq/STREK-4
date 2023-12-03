@@ -24,6 +24,17 @@ class Registration extends Controller {
 
     }
 
+    public function edit() 
+    {
+        $data['title'] = 'Edit Akun';
+        $data['users'] = $this->model('User_model')->getUserById($_SESSION['edit_akun']);
+
+        $this->view('templates/header', $data);
+        $this->view('templates/nav');
+        $this->view('registration/edit', $data);
+        $this->view('templates/footer');
+    }
+
     public function dump()
     {
         $dump = $this->model('User_model')->getAllUserByGrade($_SESSION['kelas']);

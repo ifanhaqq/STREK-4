@@ -125,7 +125,7 @@ class User extends Controller {
 
         //validate pwd
         if($data['password'] !== $data['pwdRpt']) {
-            Flasher::setFlash('gagal', 'ditambahkan', 'akun', 'danger');
+            Flasher::setLoginFlash('danger', 'Password yang anda masukkan', 'tidak sesuai!');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/registration/edit');
                 exit;
@@ -140,7 +140,8 @@ class User extends Controller {
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         if ($this->model('User_model')->updateAccount($data) > 0) {
-            Flasher::setLoginFlash('danger','ditambahkan', 'akun');
+            unset($_SESSION['edit_akun']);
+            Flasher::setLoginFlash('success', 'Akun', 'berhasil diubah!');
             move_uploaded_file($foto_temp, 'img/' . $foto_nama);
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/registration/accountlist');
@@ -148,7 +149,7 @@ class User extends Controller {
                 header('Location: ' . BASEURL . '/registrations/accountlist');
             }
         } else {
-            Flasher::setFlash('gagal','ditambahkan', 'akun', 'danger');
+            Flasher::setLoginFlash('danger','Akun', 'gagal diubah!');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/registration/edit');
                 exit;

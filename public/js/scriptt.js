@@ -82,5 +82,21 @@ $(function() {
         });
     });
 
+    $('.deleteTabungan').on('click', function () {
+
+        const id = $(this).data('id');
+
+        $.ajax({
+            url: 'http://localhost/strek-4/public/tabungan/getsaldo',
+            data: {id : id},
+            method: 'post',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                $('#id_hapus').val(data.id);
+            }
+        });
+    });
+
     
 });

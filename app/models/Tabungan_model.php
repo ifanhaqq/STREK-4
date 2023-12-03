@@ -84,4 +84,14 @@ class Tabungan_model {
 
         return $this->db->rowCount();
     }
+
+    public function deleteTabungan($id)
+    {
+        $this->db->query('DELETE FROM tabungan WHERE id = :id');
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

@@ -9,6 +9,7 @@
           <?= $_SESSION['kelas']; ?>
         </h1>
         <?php Flasher::flash(); ?>
+        <?php Flasher::loginFlash(); ?>
         <table class="table table-secondary table-striped fw-bold border border-dark">
           <thead class="table-dark text-white">
             <tr>
@@ -21,6 +22,7 @@
                   style="background-color: white;" type="button" data-bs-toggle="modal"
                   data-bs-target="#tabunganModal"><i style="color: black; width: 40px;"
                     class="bi bi-plus-lg"></i></button></th>
+              <th scope="col" class="border border-end border-dark" style="width: 115px"></th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +45,13 @@
                 <td class="border border-end border-dark">Rp.
                   <?= $row['saldo'] ?>
                 </td>
-                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal" data-id="<?= $row['nisn']; ?>"><i class="bi bi-plus-lg"></i></a></td>
+                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal"
+                    data-id="<?= $row['nisn']; ?>"><i class="bi bi-plus-lg"></i></a></td>
+                <td class="border border-end border-dark">
+                  <a href="" class="deleteTabungan" data-bs-toggle="modal" data-bs-target="#hapusTabungan"
+                    data-id="<?= $row['nisn']; ?>"><button type="button" class="btn btn-danger rounded"><i
+                        class="bi bi-trash3"></i> Hapus</button></a>
+                </td>
               </tr>
               <?php
               $no++;
@@ -118,4 +126,25 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Modal hapus tabungan -->
+<div class="modal fade" id="hapusTabungan" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="judulModal">Apakah anda yakin?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= BASEURL; ?>/tabungan/delete" method="post">
+                    <input type="hidden" class="form-control" id="id_hapus" name="id_hapus">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                <button type="submit" class="btn btn-primary">Iya</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

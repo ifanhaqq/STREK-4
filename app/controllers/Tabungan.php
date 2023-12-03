@@ -59,6 +59,25 @@ class Tabungan extends Controller {
         }
     }
 
+    public function delete()
+    {
+        if ($this->model('Tabungan_model')->deleteTabungan($_POST['id_hapus']) > 0) {
+            Flasher::setLoginFlash('success', 'Data tabungan', 'berhasil dihapus');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/tabungan');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL);
+            }
+        } else {
+            Flasher::setLoginFlash('danger', 'Data tabungan', 'gagal dihapus');
+            if ($_SESSION['type'] == 'admin') {
+                header('Location: ' . BASEURL . '/tabungan');
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL);
+            }
+        }
+    }
+
     public function getsaldo()
     {
         echo json_encode($this->model('Tabungan_model')->getTabunganByIdAssoci($_POST['id']));
