@@ -7,20 +7,20 @@ class Controller {
         if (!isset($_SESSION['id'])) {
             session_start();
             $view = 'login';
-            require_once '../app/views/login/index.php';
+            require_once 'app/views/login/index.php';
         } else {
             if ($_SESSION['type'] == 'admin') {
-                require_once '../app/views/admin/' . $view . '.php';
+                require_once 'app/views/admin/' . $view . '.php';
             } else if ($_SESSION['type'] == 'user') {
-                require_once '../app/views/user/'. $view . '.php';
-            } else if ($_SESSION['type'] == 'super') require_once '../app/views/super/' . $view . '.php';
+                require_once 'app/views/user/'. $view . '.php';
+            } else if ($_SESSION['type'] == 'super') require_once 'app/views/super/' . $view . '.php';
             
         }
     }
 
     public function model($model)
     {
-        require_once '../app/models/' . $model . '.php';
+        require_once 'app/models/' . $model . '.php';
         return new $model;
     }
 }
