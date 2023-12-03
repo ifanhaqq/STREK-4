@@ -1,6 +1,6 @@
 <?php
 
-define('BASEURL', 'http://localhost/STREK-4/public');
+define('BASEURL', 'http://localhost/STREK-4');
 
 //DB
 define('DB_HOST', 'localhost');

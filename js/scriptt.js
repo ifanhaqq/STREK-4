@@ -3,7 +3,7 @@ $(function() {
     $('.tambahModal').on('click', function () {
         const id = $(this).data('id');
         $.ajax({
-            url: 'http://localhost/strek-4/public/tabungan/getsaldo',
+            url: 'http://localhost/strek-4/tabungan/getsaldo',
             data: {id : id},
             method: 'post',
             dataType: 'json',
@@ -20,7 +20,7 @@ $(function() {
         const id = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/strek-4/public/pengajuan/getnisn',
+            url: 'http://localhost/strek-4/pengajuan/getnisn',
             data: {id : id},
             method: 'post',
             dataType: 'json',
@@ -40,7 +40,7 @@ $(function() {
         const id = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/strek-4/public/pengajuan/getnisn',
+            url: 'http://localhost/strek-4/pengajuan/getnisn',
             data: {id : id},
             method: 'post',
             dataType: 'json',
@@ -55,7 +55,7 @@ $(function() {
         const id = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/strek-4/public/user/getaccid',
+            url: 'http://localhost/strek-4/user/getaccid',
             data: {id : id},
             method: 'post',
             dataType: 'json',
@@ -70,7 +70,7 @@ $(function() {
         const id = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/strek-4/public/user/getaccid',
+            url: 'http://localhost/strek-4/user/getaccid',
             data: {id : id},
             method: 'post',
             dataType: 'json',
@@ -87,7 +87,7 @@ $(function() {
         const id = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/strek-4/public/tabungan/getsaldo',
+            url: 'http://localhost/strek-4/tabungan/getsaldo',
             data: {id : id},
             method: 'post',
             dataType: 'json',
