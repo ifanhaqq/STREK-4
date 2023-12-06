@@ -4,9 +4,9 @@ define('BASEURL', 'http://localhost/STREK-4/public');
 
 //DB
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'strek');
+define('DB_USER', 'strek-4');
+define('DB_PASS', 'ca0(D_KZc3w*lUQy');
+define('DB_NAME', 'strek-4');
 
 function get_bulan($bln) {
 	switch ($bln) {
