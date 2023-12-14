@@ -14,7 +14,7 @@
                     <?php foreach ($data['mutasi'] as $row): ?>
                         <tr>
                             <td scope="row">
-                                <?= $row['tanggal'] ?>
+                                <?= tgljm_full($row['tanggal']) ?>
                             </td>
                             <td class="border border-end border-dark" data-id="<?= $row['jumlah'] ?>">
                                 <?php if ($row['jumlah'] < 0) {
