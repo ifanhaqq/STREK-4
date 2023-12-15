@@ -12,4 +12,9 @@ class Master extends Controller {
         $this->view('master/index', $data);
         $this->view('templates/footer');
     }
+
+    public function tes()
+    {
+        echo 123;
+    }
 }

@@ -5,9 +5,14 @@
     <div class="col-10">
       <div class="rounded text-white"
         style="background: rgba(255, 255, 255, 0.1); border: 2px solid #ccc; padding: 20px;">
-        <h1 class="h1 ms-3 mb-4 text-white">Daftar Tabungan Kelas
+        <h1 class="h1 ms-3 mb-2 text-white">Daftar Tabungan Kelas
           <?= $_SESSION['kelas']; ?>
         </h1>
+
+
+        <a href="" class="mb-2" data-bs-toggle="modal" data-bs-target="#excelModal"><button type="button"
+            class="mb-2 btn btn-primary mt-4">Upload Data Tabungan</button></a>
+
         <?php Flasher::flash(); ?>
         <?php Flasher::loginFlash(); ?>
         <table class="table table-secondary table-striped fw-bold border border-dark">
@@ -130,21 +135,44 @@
 
 <!-- Modal hapus tabungan -->
 <div class="modal fade" id="hapusTabungan" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="judulModal">Apakah anda yakin?</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="<?= BASEURL; ?>/tabungan/delete" method="post">
-                    <input type="hidden" class="form-control" id="id_hapus" name="id_hapus">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                <button type="submit" class="btn btn-primary">Iya</button>
-                </form>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="judulModal">Apakah anda yakin?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= BASEURL; ?>/tabungan/delete" method="post">
+          <input type="hidden" class="form-control" id="id_hapus" name="id_hapus">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+        <button type="submit" class="btn btn-primary">Iya</button>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- Modal upload data siswa -->
+<div class="modal fade" id="excelModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="judulModal">Upload Daftar Tabungan Siswa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= BASEURL; ?>/excel/upload" method="POST" enctype="multipart/form-data" accept=".xls, .xlsx">
+          <div class="mb-3 nisn-class">
+            <label for="nisn" class="form-label">Upload File Excel</label>
+            <input type="file" class="form-control" id="nisn" name="excelFile">
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Tambah Data</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
