@@ -63,6 +63,14 @@
             endforeach; ?>
           </tbody>
         </table>
+        <div class="row">
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6 ms-auto" style="width: 240px">
+            <a href="<?= BASEURL; ?>/excel/download/<?= $_SESSION['kelas']?>/<?= date("d-m-Y")?>" class="mb-2"><button type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
+                Tabungan</button></a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -168,9 +176,9 @@
             <label for="nisn" class="form-label">Upload File Excel</label>
             <input type="file" class="form-control" id="nisn" name="excelFile">
           </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Tambah Data</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Tambah Data</button>
         </form>
       </div>
     </div>
