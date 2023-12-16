@@ -13,8 +13,15 @@ class Master extends Controller {
         $this->view('templates/footer');
     }
 
-    public function tes()
+    public function tabungan($kelas)
     {
-        echo 123;
+        $data['title'] = 'Dasboard Admin';
+        $data['tbg'] = $this->model('Tabungan_model')->getTabunganByGrade($kelas);
+        $data['kelas'] = $kelas;
+
+        $this->view('templates/header', $data);
+        $this->view('templates/nav');
+        $this->view('master/tabungan', $data);
+        $this->view('templates/footer');
     }
 }

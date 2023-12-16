@@ -1,9 +1,10 @@
 <?php
 
-class Tabungan_model {
+class Tabungan_model
+{
     private $db;
     private $table = 'tabungan';
-    public function __construct() 
+    public function __construct()
     {
         $this->db = new Database;
     }
@@ -54,12 +55,12 @@ class Tabungan_model {
         try {
             $this->db->execute();
             return $this->db->rowCount();
-        } catch(Exception) {
+        } catch (Exception) {
             return 0;
         }
-        
 
-        
+
+
     }
 
     public function addSaldo($data)
@@ -70,13 +71,14 @@ class Tabungan_model {
         $this->db->bind('saldo', $data['saldo']);
         $this->db->bind('tanggal', $data['tanggal']);
         $this->db->bind('nisn', $data['nis']);
+        
+        $this->db->execute();
+        return $this->db->rowCount();
+        // try {
 
-        try {
-            $this->db->execute();
-            return $this->db->rowCount();
-        } catch(Exception) {
-            return 0;
-        }
+        // } catch(Exception) {
+        //     return 0;
+        // }
     }
 
     public function deleteTabungan($id)
@@ -87,7 +89,7 @@ class Tabungan_model {
         try {
             $this->db->execute();
             return $this->db->rowCount();
-        } catch(Exception) {
+        } catch (Exception) {
             return 0;
         }
     }

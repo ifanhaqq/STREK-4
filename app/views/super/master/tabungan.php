@@ -6,7 +6,7 @@
       <div class="rounded text-white"
         style="background: rgba(255, 255, 255, 0.1); border: 2px solid #ccc; padding: 20px;">
         <h1 class="h1 ms-3 mb-2 text-white">Daftar Tabungan Kelas
-          <?= $_SESSION['kelas']; ?>
+          <?= $data['kelas']; ?>
         </h1>
 
 
