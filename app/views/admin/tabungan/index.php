@@ -121,7 +121,7 @@
             <input type="number" class="form-control" id="saldo" name="saldo">
           </div>
           <div class="mb-3">
-            <input type="datetime" name="tanggal" id="tanggal" value="<?= date("Y-m-d H:i:s") ?>">
+            <input type="datetime" name="tanggal" id="tanggal" value="<?= tgljm_full(date("Y-m-d H:i:s")) ?>">
           </div>
       </div>
       <div class="modal-footer">

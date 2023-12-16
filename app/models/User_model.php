@@ -65,9 +65,12 @@ class User_model
         $this->db->bind(':type', $type);
 
         //Execute
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 
     public function updateAccount($data)
@@ -84,9 +87,12 @@ class User_model
         $this->db->bind(':password', $data['password']);
         $this->db->bind(':id', $data['id']);
 
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 
     public function getAllUserByGrade($kelas)
@@ -112,9 +118,12 @@ class User_model
         $this->db->query('DELETE FROM users WHERE id = :id');
         $this->db->bind('id', $id);
 
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 
 }

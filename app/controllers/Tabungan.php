@@ -24,7 +24,7 @@ class Tabungan extends Controller {
                 exit;
             }
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'tabungan', 'primary');
+            Flasher::setFlash('gagal', 'ditambahkan', 'tabungan', 'danger');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/tabungan');
                 exit;

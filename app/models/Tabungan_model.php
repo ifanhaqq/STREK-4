@@ -51,24 +51,15 @@ class Tabungan_model {
         $this->db->bind('gender', $data['gender']);
         $this->db->bind('kelas', $data['kelas']);
 
-        $this->db->execute();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
+        
 
-        return $this->db->rowCount();
-    }
-
-    public function tambahSaldo($data)
-    {
-        $tabungan = $this->getTabunganById($data['id']);
-        $saldo = $tabungan->saldo + $data['saldo'];
-        $query = 'UPDATE tabungan SET saldo = :saldo WHERE id = :id';
-        $this->db->query($query);
-        $this->db->bind('saldo', $saldo);
-        $this->db->bind('id', $data['id']);
-
-        $this->db->execute();
-
-        return $this->db->rowCount();
-
+        
     }
 
     public function addSaldo($data)
@@ -80,9 +71,12 @@ class Tabungan_model {
         $this->db->bind('tanggal', $data['tanggal']);
         $this->db->bind('nisn', $data['nis']);
 
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 
     public function deleteTabungan($id)
@@ -90,8 +84,11 @@ class Tabungan_model {
         $this->db->query('DELETE FROM tabungan WHERE id = :id');
         $this->db->bind('id', $id);
 
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 }

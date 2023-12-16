@@ -47,9 +47,12 @@ class Pengajuan_model {
         $this->db->bind('nisn', $data['nisn']);
         $this->db->bind('status', $neutral);
         
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 
     public function refReq($id) {
@@ -57,9 +60,13 @@ class Pengajuan_model {
         $this->db->query('UPDATE pengajuan SET status = :refuse WHERE id = :id');
         $this->db->bind('id', $id);
         $this->db->bind('refuse', $refuse);
-        $this->db->execute();
-        
-        return $this->db->rowCount();
+
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 
     public function accReq($data) {
@@ -69,8 +76,12 @@ class Pengajuan_model {
         $this->db->bind('nilai', $data['nilai']);
         $this->db->bind('id', $data['id']);
         $this->db->bind('accept', $accept);
-        $this->db->execute();
-        
-        return $this->db->rowCount();
+
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 }

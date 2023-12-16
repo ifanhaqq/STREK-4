@@ -16,8 +16,11 @@ class Excel_model
         $this->db->bind('nisn', $nisn);
         $this->db->bind('gender', $gender);
 
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        try {
+            $this->db->execute();
+            return $this->db->rowCount();
+        } catch(Exception) {
+            return 0;
+        }
     }
 }
