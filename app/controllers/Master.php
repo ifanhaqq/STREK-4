@@ -3,7 +3,7 @@
 class Master extends Controller {
     public function index()
     {
-        $data['title'] = 'Dasboard Admin';
+        $data['title'] = 'Dashboard Admin';
         $data['tbg'] = $this->model('Tabungan_model')->getAllTabungan();
 
 
@@ -18,6 +18,7 @@ class Master extends Controller {
         $data['title'] = 'Dasboard Admin';
         $data['tbg'] = $this->model('Tabungan_model')->getTabunganByGrade($kelas);
         $data['kelas'] = $kelas;
+        $_SESSION['temp_kelas'] = $kelas;
 
         $this->view('templates/header', $data);
         $this->view('templates/nav');
