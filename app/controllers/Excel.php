@@ -17,7 +17,9 @@ class Excel extends Controller
             $data = $spreadsheet->getActiveSheet()->toArray();
             unset($data[0]);
 
-            $kelas = $_SESSION['kelas'];
+            if ($_SESSION['type'] == 'admin') $kelas = $_SESSION['kelas'];
+            else if ($_SESSION['type'] == 'super') $kelas = $_SESSION['temp_kelas'];
+            
 
             foreach ($data as $row) {
                 $nama = $row[0];
@@ -25,7 +27,9 @@ class Excel extends Controller
                 $gender = $row[2];
 
                 if ($this->model('Excel_model')->upload($nama, $nisn, $gender, $kelas) > 0) {
-                    header('Location: ' . BASEURL . '/tabungan');
+                    Flasher::setLoginFlash('success', 'Data Tabungan', 'berhasil di import');
+                    if ($_SESSION['type'] == 'admin') header('Location: ' . BASEURL . '/tabungan');
+                    else if ($_SESSION['type'] == 'super') header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
                 } else {
 
                 }
@@ -69,7 +73,12 @@ class Excel extends Controller
 
     public function download($kelas, $tanggal)
     {
-        $datas = $this->model('Tabungan_model')->getTabunganByGrade($_SESSION['kelas']);
+        if ($_SESSION['type'] == 'admin') {
+            $datas = $this->model('Tabungan_model')->getTabunganByGrade($_SESSION['kelas']);
+        } else if ($_SESSION['type'] == 'super') {
+            $datas = $this->model('Tabungan_model')->getTabunganByGrade($_SESSION['temp_kelas']);
+        }
+        
 
         $spreadsheet = new Spreadsheet();
         $activeSpreadsheet = $spreadsheet->getActiveSheet();

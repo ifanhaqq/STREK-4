@@ -66,7 +66,7 @@
         <div class="row">
           <div class="col-sm-6"></div>
           <div class="col-sm-6 ms-auto" style="width: 240px">
-            <a href="<?= BASEURL; ?>/excel/download/<?= $_SESSION['kelas']?>/<?= date("d-m-Y")?>" class="mb-2"><button type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
+            <a href="<?= BASEURL; ?>/excel/download/<?= $data['kelas']?>/<?= date("d-m-Y")?>" class="mb-2"><button type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
                 Tabungan</button></a>
           </div>
         </div>
@@ -85,8 +85,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL; ?>/tabungan/tambah" method="post">
-          <input type="hidden" class="form-control" id="kelas" name="kelas" value="<?= $_SESSION['kelas']; ?>">
+        <form action="<?= BASEURL; ?>/tabungan/tambah/<?= $data['kelas']; ?>" method="post">
+          <input type="hidden" class="form-control" id="kelas" name="kelas" value="<?= $data['kelas']; ?>">
           <div class="mb-3 nisn-class">
             <label for="nisn" class="form-label">NISN</label>
             <input type="text" class="form-control" id="nisn" name="nisn">
@@ -121,7 +121,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL; ?>/tabungan/tambahjumlahsaldo" method="post">
+        <form action="<?= BASEURL; ?>/tabungan/tambahjumlahsaldo/<?= $data['kelas']; ?>" method="post">
           <input type="hidden" name="id" id="id">
           <input type="hidden" name="nis" id="nis">
           <div class="mb-3">
@@ -150,7 +150,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL; ?>/tabungan/delete" method="post">
+        <form action="<?= BASEURL; ?>/tabungan/delete/<?= $data['kelas']; ?>" method="post">
           <input type="hidden" class="form-control" id="id_hapus" name="id_hapus">
       </div>
       <div class="modal-footer">

@@ -12,15 +12,18 @@ class Tabungan extends Controller {
         $this->view('tabungan/index', $data);
         $this->view('templates/footer');
     }
-    public function tambah()
+    public function tambah($kelas)
     {
+        $_SESSION['temp_kelas'] = $kelas;
+
         if ($this->model('Tabungan_model')->tambahDataTabungan($_POST) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan', 'tabungan', 'success');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/tabungan');
                 exit;
             } else if ($_SESSION['type'] = 'super') {
-                header('Location: ' . BASEURL);
+                header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
+                unset($_SESSION['temp_kelas']);
                 exit;
             }
         } else {
@@ -28,22 +31,26 @@ class Tabungan extends Controller {
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/tabungan');
                 exit;
-            } else if ($_SESSION['type'] = 'super') {
-                header('Location: ' . BASEURL);
+            } else if ($_SESSION['type'] == 'super') {
+                header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
+                unset($_SESSION['temp_kelas']);
                 exit;
             }
         }
     }
 
-    public function tambahJumlahSaldo()
+    public function tambahJumlahSaldo($kelas)
     {
+        $_SESSION['temp_kelas'] = $kelas;
+
         if ($this->model('Tabungan_model')->addSaldo($_POST) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'tabungan', 'success');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/tabungan');
                 exit;
             } else if ($_SESSION['type'] = 'super') {
-                header('Location: ' . BASEURL);
+                header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
+                unset($_SESSION['temp_kelas']);
                 exit;
             }
         } else {
@@ -52,28 +59,33 @@ class Tabungan extends Controller {
                 header('Location: ' . BASEURL . '/tabungan');
                 exit;
             } else if ($_SESSION['type'] = 'super') {
-                header('Location: ' . BASEURL);
+                header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
+                unset($_SESSION['temp_kelas']);
                 exit;
             }
             
         }
     }
 
-    public function delete()
+    public function delete($kelas)
     {
+        $_SESSION['temp_kelas'] = $kelas;
+
         if ($this->model('Tabungan_model')->deleteTabungan($_POST['id_hapus']) > 0) {
             Flasher::setLoginFlash('success', 'Data tabungan', 'berhasil dihapus');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/tabungan');
             } else if ($_SESSION['type'] == 'super') {
-                header('Location: ' . BASEURL);
+                header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
+                unset($_SESSION['temp_kelas']);
             }
         } else {
             Flasher::setLoginFlash('danger', 'Data tabungan', 'gagal dihapus');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/tabungan');
             } else if ($_SESSION['type'] == 'super') {
-                header('Location: ' . BASEURL);
+                header('Location: ' . BASEURL . '/master/tabungan/' . $_SESSION['temp_kelas']);
+                unset($_SESSION['temp_kelas']);
             }
         }
     }
