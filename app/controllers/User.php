@@ -34,7 +34,8 @@ class User extends Controller {
             'nip' => trim($_POST['nip']),
             'kelas' => trim($_POST['kelas']),
             'password' => trim($_POST['password']),
-            'pwdRpt' => trim($_POST['pwdRpt'])
+            'pwdRpt' => trim($_POST['pwdRpt']),
+            'type' => trim($_POST['type'])
         ];
 
         //validate pwd

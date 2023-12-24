@@ -11,6 +11,7 @@
                         enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-6">
+                                <input type="hidden" name="type" value="user">
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama</label>
                                     <input type="text" class="form-control border-dark" name="nama" id="nama">

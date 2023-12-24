@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="fw-bolder mt-5">
-        <?php Flasher::loginFlash(); ?>
+            <?php Flasher::loginFlash(); ?>
             <div class="rounded text-white"
                 style="background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 10px;">
                 <h1 class="mb-4 text-center">Daftar Akun</h1>
@@ -10,9 +10,9 @@
                         <tr>
                             <th scope="col" class="border border-end border-dark w-13">No</th>
                             <th scope="col" class="border border-end border-dark">Nama</th>
-                            <th scope="col" class="border border-end border-dark">NISN</th>
+                            <th scope="col" class="border border-end border-dark">Kelas</th>
                             <th scope="col" class="border border-end border-dark">Username</th>
-                            <th scope="col" class="border border-end border-dark">Tipe</th>
+                            <th scope="col" class="border border-end border-dark">Peran</th>
                             <th scope="col" class="border border-end border-dark text-center" style="width: 200px">Aksi
                             </th>
                         </tr>
@@ -30,13 +30,17 @@
                                     <?= $row['name']; ?>
                                 </td>
                                 <td class="border border-end border-dark">
-                                    <?= $row['nip']; ?>
+                                    <?= $row['kelas']; ?>
                                 </td>
                                 <td class="border border-end border-dark">
                                     <?= $row['username']; ?>
                                 </td>
                                 <td class="border border-end border-dark">
-                                    <?= $row['type']; ?>
+                                    <?php
+                                    if ($row['type'] == 'admin') echo 'Guru';
+                                    else if ($row['type'] == 'user') echo 'Siswa'; 
+                                    else echo 'Admin';
+                                    ?>
                                 </td>
                                 <td class="border border-end border-dark">
                                     <a href="" class="editAccount" data-bs-toggle="modal" data-bs-target="#editakun"
@@ -54,7 +58,7 @@
                         endforeach; ?>
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>

@@ -51,7 +51,6 @@ class User_model
 
     public function register($data)
     {
-        $type = 'user';
         $this->db->query('INSERT INTO users (name, email, foto, nip, kelas, username, password, type) 
         VALUES (:name, :email, :foto, :nip, :kelas, :username, :password, :type)');
         //Bind values
@@ -62,7 +61,7 @@ class User_model
         $this->db->bind(':kelas', $data['kelas']);
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':password', $data['password']);
-        $this->db->bind(':type', $type);
+        $this->db->bind(':type', $data['type']);
 
         //Execute
         try {
@@ -109,7 +108,7 @@ class User_model
 
     public function getAllUser()
     {
-        $this->db->query('SELECT * FROM users ORDER BY type DESC, name');
+        $this->db->query('SELECT * FROM users ORDER BY type DESC, kelas, name');
         return $this->db->resultSet();
     }
 
