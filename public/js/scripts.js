@@ -75,9 +75,9 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function (data) {
-                console.log(data.password);
                 $('#id_edit').val(data.id);
                 $('#truepw').val(data.password);
+                $('#type').val(data.type);
             }
         });
     });
