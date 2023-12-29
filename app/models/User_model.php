@@ -108,7 +108,7 @@ class User_model
 
     public function getAllUser()
     {
-        $this->db->query('SELECT * FROM users ORDER BY type DESC, kelas, name');
+        $this->db->query('SELECT * FROM users WHERE type = "admin" ORDER BY type DESC, kelas, name');
         return $this->db->resultSet();
     }
 

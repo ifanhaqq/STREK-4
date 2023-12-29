@@ -3,7 +3,6 @@
         <div class="col-2"></div>
         <div class="col-8">
             <div class="fw-bolder">
-                <?php Flasher::flash(); ?>
                 <div class="rounded text-white"
                     style="background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 10px;">
                     <h1 class="mb-5 text-center">Registrasi Akun Siswa</h1>

@@ -2,7 +2,7 @@
   <div class="row">
 
 
-    <div class="col-10">
+    <div class="col-sm-10">
       <div class="rounded text-white"
         style="background: rgba(255, 255, 255, 0.1); border: 2px solid #ccc; padding: 20px;">
         <h1 class="h1 ms-3 mb-2 text-white">Daftar Tabungan Kelas
@@ -15,58 +15,61 @@
 
         <?php Flasher::flash(); ?>
         <?php Flasher::loginFlash(); ?>
-        <table class="table table-secondary table-striped fw-bold border border-dark">
-          <thead class="table-dark text-white">
-            <tr>
-              <th scope="col" class="border border-end border-dark w-13">No</th>
-              <th scope="col" class="border border-end border-dark">Nama</th>
-              <th scope="col" class="border border-end border-dark">NISN</th>
-              <th scope="col" class="border border-end border-dark">Gender</th>
-              <th scope="col" class="border border-end border-dark">Total Tabungan</th>
-              <th scope="col" class="border border-end border-dark text-center"><button class="rounded"
-                  style="background-color: white;" type="button" data-bs-toggle="modal"
-                  data-bs-target="#tabunganModal"><i style="color: black; width: 40px;"
-                    class="bi bi-plus-lg"></i></button></th>
-              <th scope="col" class="border border-end border-dark" style="width: 115px"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $no = 1;
-            foreach ($data['tbg'] as $row): ?>
+        <div class="table-responsive">
+          <table class="table table-secondary table-striped fw-bold border border-dark">
+            <thead class="table-dark text-white">
               <tr>
-                <th scope="row">
-                  <?= $no; ?>
-                </th>
-                <td class="border border-end border-dark">
-                  <?= $row['nama'] ?>
-                </td>
-                <td class="border border-end border-dark">
-                  <?= $row['nisn'] ?>
-                </td>
-                <td class="border border-end border-dark">
-                  <?= $row['gender'] ?>
-                </td>
-                <td class="border border-end border-dark">Rp.
-                  <?= $row['saldo'] ?>
-                </td>
-                <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal" data-bs-target="#saldoModal"
-                    data-id="<?= $row['nisn']; ?>"><i class="bi bi-plus-lg"></i></a></td>
-                <td class="border border-end border-dark">
-                  <a href="" class="deleteTabungan" data-bs-toggle="modal" data-bs-target="#hapusTabungan"
-                    data-id="<?= $row['nisn']; ?>"><button type="button" class="btn btn-danger rounded"><i
-                        class="bi bi-trash3"></i> Hapus</button></a>
-                </td>
+                <th scope="col-sm" class="border border-end border-dark w-13">No</th>
+                <th scope="col-sm" class="border border-end border-dark">Nama</th>
+                <th scope="col-sm" class="border border-end border-dark">NISN</th>
+                <th scope="col-sm" class="border border-end border-dark">Gender</th>
+                <th scope="col-sm" class="border border-end border-dark">Total Tabungan</th>
+                <th scope="col-sm" class="border border-end border-dark text-center"><button class="rounded"
+                    style="background-color: white;" type="button" data-bs-toggle="modal"
+                    data-bs-target="#tabunganModal"><i style="color: black; width: 40px;"
+                      class="bi bi-plus-lg"></i></button></th>
+                <th scope="col-sm" class="border border-end border-dark" style="width: 115px"></th>
               </tr>
+            </thead>
+            <tbody>
               <?php
-              $no++;
-            endforeach; ?>
-          </tbody>
-        </table>
+              $no = 1;
+              foreach ($data['tbg'] as $row): ?>
+                <tr>
+                  <th scope="row">
+                    <?= $no; ?>
+                  </th>
+                  <td class="border border-end border-dark">
+                    <?= $row['nama'] ?>
+                  </td>
+                  <td class="border border-end border-dark">
+                    <?= $row['nisn'] ?>
+                  </td>
+                  <td class="border border-end border-dark">
+                    <?= $row['gender'] ?>
+                  </td>
+                  <td class="border border-end border-dark">Rp.
+                    <?= $row['saldo'] ?>
+                  </td>
+                  <td class="text-center"><a href="" class="tambahModal" data-bs-toggle="modal"
+                      data-bs-target="#saldoModal" data-id="<?= $row['nisn']; ?>"><i class="bi bi-plus-lg"></i></a></td>
+                  <td class="border border-end border-dark">
+                    <a href="" class="deleteTabungan" data-bs-toggle="modal" data-bs-target="#hapusTabungan"
+                      data-id="<?= $row['nisn']; ?>"><button type="button" class="btn btn-danger rounded"><i
+                          class="bi bi-trash3"></i> Hapus</button></a>
+                  </td>
+                </tr>
+                <?php
+                $no++;
+              endforeach; ?>
+            </tbody>
+          </table>
+        </div>
         <div class="row">
           <div class="col-sm-6"></div>
           <div class="col-sm-6 ms-auto" style="width: 240px">
-            <a href="<?= BASEURL; ?>/excel/download/<?= $data['kelas']?>/<?= date("d-m-Y")?>" class="mb-2"><button type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
+            <a href="<?= BASEURL; ?>/excel/download/<?= $data['kelas'] ?>/<?= date("d-m-Y") ?>" class="mb-2"><button
+                type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
                 Tabungan</button></a>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
             <div class="fw-bolder">
                 <?php Flasher::flash(); ?>
                 <div class="rounded text-white"
@@ -10,7 +10,7 @@
                     <form method="post" action="<?= BASEURL; ?>/user/register" class="rounded"
                         enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <select id="disabledSelect" class="form-select border-dark" name="type">
                                         <option selected>-- Untuk siapa --</option>
@@ -36,7 +36,7 @@
                                         id="kelas">
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
                                     <input required type="email" class="form-control border-dark" name="email"
@@ -64,7 +64,7 @@
                         </div>
                     </form>
                 </div>
-                <a href="<?= BASEURL; ?>/registrations/accountlist"><button type="button"
+                <a href="<?= BASEURL; ?>/registrations/guru"><button type="button"
                         class="btn btn-primary mt-4">Lihat Daftar Akun</button></a>
             </div>
         </div>

@@ -1,16 +1,12 @@
 <div class="container mt-5">
   <div class="row">
-
-
-    <div class="col-10">
+    <div class="col-sm-10">
       <div class="rounded text-white"
         style="background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 20px;">
         <h1 class="h1 ms-3 mb-4 text-white text-center">Daftar Tabungan</h1>
-        <?php Flasher::flash(); ?>
-        <?php Flasher::loginFlash(); ?>
 
         <div class="row">
-          <div class="col-md-4 mb-4">
+          <div class="col-sm-4 mb-4">
             <!-- Content for column 1 -->
             <a href="<?= BASEURL;?>/master/tabungan/1" style="text-decoration: none">
               <div class="card border border-3 border-dark"
@@ -22,7 +18,7 @@
             </a>
           </div>
 
-          <div class="col-md-4 mb-4">
+          <div class="col-sm-4 mb-4">
             <!-- Content for Kelas 2 -->
             <a href="<?= BASEURL;?>/master/tabungan/2" style="text-decoration: none">
               <div class="card border border-3 border-dark"
@@ -34,7 +30,7 @@
             </a>
           </div>
 
-          <div class="col-md-4 mb-4">
+          <div class="col-sm-4 mb-4">
             <!-- Content for Kelas 3 -->
             <a href="<?= BASEURL;?>/master/tabungan/3" style="text-decoration: none">
               <div class="card border border-3 border-dark"
@@ -48,7 +44,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 mb-4">
+          <div class="col-sm-4 mb-4">
             <!-- Content for Kelas 4 -->
             <a href="<?= BASEURL;?>/master/tabungan/4" style="text-decoration: none">
               <div class="card border border-3 border-dark"
@@ -60,7 +56,7 @@
             </a>
           </div>
 
-          <div class="col-md-4 mb-4">
+          <div class="col-sm-4 mb-4">
             <!-- Content for Kelas 5 -->
             <a href="<?= BASEURL;?>/master/tabungan/5" style="text-decoration: none">
               <div class="card border border-3 border-dark"
@@ -72,7 +68,7 @@
             </a>
           </div>
 
-          <div class="col-md-4 mb-4">
+          <div class="col-sm-4 mb-4">
             <!-- Content for Kelas 6 -->
             <a href="<?= BASEURL;?>/master/tabungan/6" style="text-decoration: none">
               <div class="card border border-3 border-dark"

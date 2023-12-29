@@ -11,4 +11,9 @@ class Mutasi extends Controller {
         $this->view('mutasi/index', $data);
         $this->view('templates/footer');
     }
+
+    public function dump()
+    {
+        echo var_dump($this->model('Mutasi_model')->join());
+    }
 }

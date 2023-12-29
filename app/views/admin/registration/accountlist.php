@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="fw-bolder mt-5">
-        <?php Flasher::loginFlash(); ?>
+        <?php Flasher::flash(); ?>
             <div class="rounded text-white"
                 style="background: rgba(255, 255, 255, 0.3); border: 2px solid #ccc; padding: 10px;">
                 <h1 class="mb-4 text-center">Daftar Akun Siswa Kelas <?= $_SESSION['kelas']; ?></h1>

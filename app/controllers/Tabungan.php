@@ -12,7 +12,7 @@ class Tabungan extends Controller {
         $this->view('tabungan/index', $data);
         $this->view('templates/footer');
     }
-    public function tambah($kelas)
+    public function tambah($kelas = null)
     {
         $_SESSION['temp_kelas'] = $kelas;
 
@@ -39,7 +39,7 @@ class Tabungan extends Controller {
         }
     }
 
-    public function tambahJumlahSaldo($kelas)
+    public function tambahJumlahSaldo($kelas = null)
     {
         $_SESSION['temp_kelas'] = $kelas;
 
@@ -67,7 +67,7 @@ class Tabungan extends Controller {
         }
     }
 
-    public function delete($kelas)
+    public function delete($kelas = null)
     {
         $_SESSION['temp_kelas'] = $kelas;
 

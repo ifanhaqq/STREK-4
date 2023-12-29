@@ -12,14 +12,14 @@ class Pengajuan extends Controller {
         $this->view('templates/footer');
     }
 
-    public function tolak()
+    public function tolak($kelas = null)
     {
         if ($this->model('Pengajuan_model')->refReq(($_POST['id'])) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/pengajuan');
             } else if ($_SESSION['type'] == 'super') {
-                header('Location: ' . BASEURL . '/request');
+                header('Location: ' . BASEURL . '/request/daftarpengajuan/' . $kelas);
             }
             
         } else {
@@ -27,25 +27,26 @@ class Pengajuan extends Controller {
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/pengajuan');
             } else if ($_SESSION['type'] == 'super') {
-                header('Location: ' . BASEURL . '/request');
+                header('Location: ' . BASEURL . '/request/daftarpengajuan/' . $kelas);
             }
         }
     }
 
-    public function terima() {
+    public function terima($kelas = null)
+    {
         if ($this->model('Pengajuan_model')->accReq(($_POST)) > 0 ) {
             Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/pengajuan');
             } else if ($_SESSION['type'] == 'super') {
-                header('Location: ' . BASEURL . '/request');
+                header('Location: ' . BASEURL . '/request/daftarpengajuan/' . $kelas);
             }
         } else {
             Flasher::setFlash('gagal', 'diubah', 'status', 'danger');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/pengajuan');
             } else if ($_SESSION['type'] == 'super') {
-                header('Location: ' . BASEURL . '/request');
+                header('Location: ' . BASEURL . '/request/daftarpengajuan/' . $kelas);
             }
         }
     }

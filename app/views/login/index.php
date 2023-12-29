@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
             <p class="fw-bolder ms-2 mt-2">STREK-4</p>
             <div class="top-panel">
                 <div class="d-flex flex-column justify-content-center fw-bold">
@@ -38,12 +38,12 @@
                         <div class="p-2"></div>
                     </div>
                     <div class="d-flex flex-row justify-content-center">
-                        <div class="p-2"><img src="<?= BASEURL;?>/img/Kids.png" width="400" height="auto" class="img-fluid"></div>
+                        <div class="p-2"><dotlottie-player src="https://lottie.host/7d6ac9e4-6010-45f4-9995-14c227488540/maaMKcJSen.json" background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal" loop autoplay></dotlottie-player></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6" style="background-color: rgb(190, 250, 230);">
+        <div class="col-sm-6" style="background-color: rgb(190, 250, 230);">
             <div class="row">
                 <div class="col-2 text-center"></div>
                 <div class="col-6 top-panel">
@@ -76,6 +76,7 @@
         </div>
     </div>
 
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
