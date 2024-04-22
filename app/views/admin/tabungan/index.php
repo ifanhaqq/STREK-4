@@ -8,10 +8,18 @@
         <h1 class="h1 ms-3 mb-2 text-white">Daftar Tabungan Kelas
           <?= $_SESSION['kelas']; ?>
         </h1>
-
+        
 
         <a href="" class="mb-2" data-bs-toggle="modal" data-bs-target="#excelModal"><button type="button"
             class="mb-2 btn btn-primary mt-4">Upload Data Tabungan</button></a>
+        
+        <div class="row">
+          <div class="col-sm-8"></div>
+          <div class="col-sm-4">
+            <input type="search" onkeyup="tableSearch()" class="form-control mb-3" id="searchTabungan" placeholder="Cari nama siswa...">
+          </div>
+        </div>
+        
 
         <?php Flasher::flash(); ?>
         <?php Flasher::loginFlash(); ?>
@@ -30,7 +38,7 @@
               <th scope="col" class="border border-end border-dark" style="width: 115px"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tbody">
             <?php
             $no = 1;
             foreach ($data['tbg'] as $row): ?>
@@ -38,7 +46,7 @@
                 <th scope="row">
                   <?= $no; ?>
                 </th>
-                <td class="border border-end border-dark">
+                <td class="border border-end border-dark nama">
                   <?= $row['nama'] ?>
                 </td>
                 <td class="border border-end border-dark">
@@ -66,7 +74,7 @@
         <div class="row">
           <div class="col-sm-6"></div>
           <div class="col-sm-6 ms-auto" style="width: 240px">
-            <a href="<?= BASEURL; ?>/excel/download/<?= $_SESSION['kelas']?>/<?= date("d-m-Y")?>" class="mb-2"><button type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
+            <a href="<?= BASEURL; ?>/excel/download/<?= $_SESSION['kelas'] ?>/<?= date("d-m-Y") ?>" class="mb-2"><button type="button" class="ms-auto mb-2 btn btn-primary mt-4">Download Data
                 Tabungan</button></a>
           </div>
         </div>
@@ -184,3 +192,28 @@
     </div>
   </div>
 </div>
+
+<!-- <script>
+  function tableSearch() {
+    console.log('tess');
+    // // Declare variables
+    // var input, filter, i, txtValue, tbody, tr, td;
+    // input = document.getElementById('searchTabungan');
+    // filter = input.value.toUpperCase();
+    // tbody = document.getElementById('tbody');
+    // tr = tbody.getElementsByTagName('tr');
+    // console.log('tes');
+
+    // // Loop through all list items, and hide those who don't match the search query
+    // for (i = 0; i < tr.length; i++) {
+    //     td = tr[i].getElementsByClassName("nama")[0];
+    //     txtValue = td.textContent || td.innerText;
+    //     console.log(txtValue.toUpperCase());
+    //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //         tr[i].style.display = "";
+    //     } else {
+    //         tr[i].style.display = "none";
+    //     }
+    // }
+}
+</script> -->

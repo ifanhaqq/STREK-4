@@ -12,6 +12,13 @@
 
         <a href="" class="mb-2" data-bs-toggle="modal" data-bs-target="#excelModal"><button type="button"
             class="mb-2 btn btn-primary mt-4">Upload Data Tabungan</button></a>
+        
+        <div class="row">
+          <div class="col-sm-8"></div>
+          <div class="col-sm-4">
+            <input type="search" onkeyup="tableSearch()" class="form-control mb-3" id="searchTabungan" placeholder="Cari nama siswa...">
+          </div>
+        </div>
 
         <?php Flasher::flash(); ?>
         <?php Flasher::loginFlash(); ?>
@@ -31,7 +38,7 @@
                 <th scope="col-sm" class="border border-end border-dark" style="width: 115px"></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody">
               <?php
               $no = 1;
               foreach ($data['tbg'] as $row): ?>
@@ -39,7 +46,7 @@
                   <th scope="row">
                     <?= $no; ?>
                   </th>
-                  <td class="border border-end border-dark">
+                  <td class="border border-end border-dark nama">
                     <?= $row['nama'] ?>
                   </td>
                   <td class="border border-end border-dark">

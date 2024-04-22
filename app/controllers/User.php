@@ -60,7 +60,7 @@ class User extends Controller
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/registration');
                 exit;
-            } else if ($_SESSION['type'] = 'super') {
+            } else if ($_SESSION['type'] == 'super') {
                 header('Location: ' . BASEURL . '/registrations');
                 exit;
             }
@@ -74,7 +74,7 @@ class User extends Controller
             Flasher::setFlash('berhasil', 'ditambahkan', 'akun', 'success');
             move_uploaded_file($foto_temp, 'img/' . $foto_nama);
             if ($_SESSION['type'] == 'admin') {
-                header('Location: ' . BASEURL . '/registration');
+                header('Location: ' . BASEURL . '/registration/accountlist');
             } else if ($_SESSION['type'] == 'super') {
                 header('Location: ' . BASEURL . '/registrations');
             }
