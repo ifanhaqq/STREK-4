@@ -287,7 +287,7 @@ class User extends Controller
                 header('Location: ' . BASEURL . '/registration/accountlist');
             } else if ($_SESSION['type'] == 'super') {
                 Flasher::setLoginFlash('danger', 'Password yang anda masukkan', 'salah');
-                header('Location: ' . BASEURL . '/registrations/accountlist');
+                header('Location: ' . BASEURL . '/registrations/guru');
             }
         }
     }

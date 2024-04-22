@@ -7,6 +7,7 @@
                     <?= $data['heading']; ?>
                 </h1>
                 <?php Flasher::flash(); ?>
+                <?php Flasher::loginflash(); ?>
                 <div class="col-sm-2 mb-4">
                     <select class="form-select" onchange="location = this.value;">
                         <option value="#" selected>-- Pilih Kelas --</option>

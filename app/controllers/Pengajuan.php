@@ -42,7 +42,7 @@ class Pengajuan extends Controller {
                 header('Location: ' . BASEURL . '/request/daftarpengajuan/' . $kelas);
             }
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'status', 'danger');
+            Flasher::setFlash('berhasil', 'diubah', 'status', 'success');
             if ($_SESSION['type'] == 'admin') {
                 header('Location: ' . BASEURL . '/pengajuan');
             } else if ($_SESSION['type'] == 'super') {
