@@ -1,0 +1,11 @@
+{
+  "name": "strek-4",
+  "version": "1.0.0",
+  "description": "APLIKASI WEB SISTEM INVENTARIS TABUNGAN SEKOLAH DASAR SDN 04 ERETAN KULON",
+  "main": "api/index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
